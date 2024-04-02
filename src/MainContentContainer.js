@@ -1,4 +1,3 @@
-// MainContentContainer.js
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home3 from './Home3';
