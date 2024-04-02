@@ -1,0 +1,90 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 전체 화면 높이 설정 */
+}
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end; /* 메뉴를 오른쪽으로 배치 */
+}
+
+.navbar-link {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  margin-right: 20px;
+  line-height: 40px; /* 버튼 높이와 맞춤 */
+}
+
+.navbar-link:hover {
+  color: #ccc; /* 호버 시 색상 변경 */
+}
+
+.logout-button {
+  background-color: #fff;
+  color: #333;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-right: 20px;
+}
+
+.logout-button:hover {
+  background-color: #ccc;
+  color: #fff;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar {
+  background-color: #f4f4f4;
+  width: 240px;
+  height: 1000px;
+}
+
+
+.sidebar-container {
+  background-color: #f4f4f4;
+  padding: 20px;
+  width: 240px;
+  position: fixed; /* 화면에 고정 */
+}
+
+.user-info {
+  text-align: center;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border: solid 1px black;
+  border-radius: 100px;
+  padding: 5px;
+  margin: 20px;
+}
+
+.main-content-container {
+  flex: 1;
+  padding: 20px;
+  margin-left: 280px;
+  overflow-x: auto;
+  overflow-y: auto; /* 메인 콘텐츠 영역에만 수직 스크롤 적용 */
+  height: 1000px;
+}
+
+.hoseo-site{
+  padding-top: 100px;
+}
+
+.site-link{
+  padding-left: 20px;
+  text-decoration: none;
+}
