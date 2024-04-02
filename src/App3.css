@@ -53,7 +53,6 @@
 
 .sidebar-container {
   background-color: #f4f4f4;
-  padding: 20px;
   width: 240px;
   position: fixed; /* 화면에 고정 */
 }
@@ -73,10 +72,8 @@ img {
 
 .main-content-container {
   flex: 1;
-  padding: 20px;
-  margin-left: 280px;
+  margin-left: 260px;
   overflow-x: auto;
-  overflow-y: auto; /* 메인 콘텐츠 영역에만 수직 스크롤 적용 */
   height: 1000px;
 }
 
@@ -87,4 +84,12 @@ img {
 .site-link{
   padding-left: 20px;
   text-decoration: none;
+}
+
+.check{
+  width: 500px;
+  height: 500px;
+  padding: 5px;
+  border: dashed 2px gray;
+  border-radius: 8px;
 }
