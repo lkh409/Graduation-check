@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home3 from './Home3';
-import Notice3 from './Notice3';
-import Logout3 from './Logout3';
-import Check from './Check';
+import Home3 from '../routes/Home3';
+import Notice3 from '../routes/Notice3';
+import Logout3 from '../routes/Logout3';
+import Check from '../components/Check';
 
 function MainContentContainer3() { //메인 부분 영역 설정
   return (

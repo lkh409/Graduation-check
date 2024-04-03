@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import NavigationBar3 from './NavigationBar';
-import SidebarContainer3 from './SidebarContainer';
-import MainContentContainer3 from './MainContentContainer';
+import NavigationBar3 from './components/NavigationBar';
+import SidebarContainer3 from './components/SidebarContainer';
+import MainContentContainer3 from './components/MainContentContainer';
 import './App3.css'
 
 function App3() {
