@@ -6,7 +6,7 @@ export const MenuItems = [
     },
     {
       title: "꿀교양 찾기",
-      url: "/",
+      url: "/honeyboard",
       cName: "nav-links",
     },
     {

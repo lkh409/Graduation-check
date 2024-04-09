@@ -9,7 +9,7 @@ class Navbar extends Component {
 
     return (
       <nav className="NavbarItems">
-        <h1 className="navbar-logo">HOSEO</h1>
+        <Link to="/" className="navbar-logo">HOSEO</Link>
 
         <ul className="nav-menu">
           {MenuItems.map((item, index) => {

@@ -1,0 +1,29 @@
+.honey-main-container{
+    margin-top: 100px;
+}
+
+.honey-category{
+    height: 300px;
+    border: solid 1px black;
+}
+
+.honey-list{
+    height: 500px;
+    border: solid 1px black;
+    overflow-y: scroll;
+}
+
+.h-list{
+    border: solid 1px black;
+    width: 1500px;
+    border-spacing: 0px;
+    border-collapse: separate;
+}
+
+.h-list-thead{
+    background-color: lightgrey;
+}
+
+.h-item{
+    border: solid 1px gray;
+}
