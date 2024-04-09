@@ -1,0 +1,47 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.footer {
+  /*position: fixed;*/
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffffff;
+  text-align: left;
+  padding: 20px 0;
+}
+
+.footer-border {
+  border-top: 1px solid rgb(110, 110, 110);
+  margin-left: 40px; /* 왼쪽 여백 */
+  margin-right: 40px; /* 오른쪽 여백 */
+}
+
+.logo {
+  margin-top: 25px;
+  margin-left: 30px;
+  font-size: 18px; /* 로고 텍스트 크기 */
+  font-weight: bold;
+}
+
+.contact {
+  margin-top: 15px; /* p 태그의 위아래 여백 */
+  margin-left: 30px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.contact-info {
+  margin-top: 3px;
+  margin-left: 30px;
+  margin-bottom: 8px;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+a {
+  text-decoration: none; /* 링크 밑줄 제거 */
+  color: rgb(0, 0, 0); /* 링크 색상 */
+  cursor: pointer;
+}
