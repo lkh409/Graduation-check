@@ -4,7 +4,12 @@
 .home-title{
   margin-top: 100px;
 }
-
+.home-content{
+  margin-top: 30px;
+}
+.chk-btn{
+  color: white;
+}
 .sidebar {
   background-color: #f4f4f4;
   width: 240px;

@@ -1,20 +1,27 @@
 .honey-main-container{
     margin-top: 100px;
 }
-
+.honey-exp{
+    color: grey;
+}
 .honey-category{
-    height: 300px;
-    border: solid 1px black;
+    display: flex;
+}
+
+.horizontal-line {
+    width: 100%; /* 가로 선의 너비 */
+    height: 1px; /* 가로 선의 높이 */
+    background-color: #000; /* 가로 선의 색상 */
 }
 
 .honey-list{
     height: 500px;
-    border: solid 1px black;
+    border: solid 1px dimgray;
     overflow-y: scroll;
 }
 
 .h-list{
-    border: solid 1px black;
+    border: solid 1px dimgray;
     width: 1500px;
     border-spacing: 0px;
     border-collapse: separate;
@@ -22,6 +29,7 @@
 
 .h-list-thead{
     background-color: lightgrey;
+    color: dimgray;
 }
 
 .h-item{
