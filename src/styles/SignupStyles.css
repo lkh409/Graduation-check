@@ -1,0 +1,95 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 260px;
+    width: 400px;
+    height: 420px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding-bottom: 30px;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+  .text {
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    font-weight: 700;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+  
+  .inputs {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .input {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 350px;
+    height: 50px;
+    background: #eaeaea;
+    border-radius: 8px;
+  }
+  
+  /*입력창 앞에 아이콘 설정*/
+  .input img {
+    margin: 0px 25px;
+  }
+  
+  .input input {
+    height: 30px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #000000;
+    font-size: 14px;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+  
+  .s_submit-container {
+    display: flex;
+    gap: 10px;
+    margin: 15px auto;
+  }
+  
+  .s_submit {
+    width: 100%; /* 버튼을 컨테이너 너비에 맞게 조절 */
+    margin: 0; /* 외부 마진 제거 */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    width: 350px;
+    height: 50px;
+    color: #fff;
+    background: #000000;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Noto Sans KR", sans-serif;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .s_submit:hover {
+    color: #fff;
+    background: #9c9c9c;
+  }
