@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css"; // 가정한 CSS 파일 경로
+import "../styles/Footer.css"; // 가정한 CSS 파일 경로
 
 function Footer() {
   return (

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "./NavbarStyles2.css";
+import "../styles/NavbarStyles2.css";
 import { MenuItems } from "./MenuItems";
 import { Link } from "react-router-dom";
 

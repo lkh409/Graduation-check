@@ -1,9 +1,9 @@
 // HoneyBoard.js
 
 import React, { useState } from 'react';
-import Honey_list from './Honey_list';
-import './HoneyBoard.css';
-import DropdownBtn from './Dropdown_btn';
+import Honey_list from '../components/Honey_list';
+import '../styles/HoneyBoard.css';
+import DropdownBtn from '../components/Dropdown_btn';
 
 function HoneyBoard() {
   const [creditFilter, setCreditFilter] = useState(null); // 학점 관련

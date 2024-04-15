@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import "./index2.css";
+import "./styles/index2.css";
 import App3 from './App3';
 
 

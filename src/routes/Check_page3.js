@@ -1,7 +1,7 @@
 import React from 'react';
-import MainContentContainer3 from './components/MainContentContainer';
-import './App3.css'
-import './components/Check_page.css'
+import MainContentContainer3 from '../components/MainContentContainer';
+import '../styles/App3.css'
+import '../styles/Check_page.css'
 
 function Check_page() {
   return (
