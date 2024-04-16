@@ -1,43 +1,81 @@
+/* App3.css */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.home-title{
-  margin-top: 100px;
+/* 홈 페이지에서 사용되는 CSS 클래스와 겹치는 부분 수정 */
+.app-layout {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
 }
-.home-content{
-  margin-top: 30px;
+
+
+.app-content {
+  margin-top: 64px;
+  width: 100%;
+  position: relative;
+  flex: 1; 
 }
-.chk-btn{
+
+.home-image-container {
+  height: 20%; /* 전체 화면의 세로 높이를 차지 */
+  width: 100%;
+  position: relative; /* 상대 위치 설정은 유지 */
+  left: 0;
+}
+
+
+.home-image-container img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 0;
+}
+
+.home-big-title {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
-}
-.sidebar {
-  background-color: #f4f4f4;
-  width: 240px;
-  height: 1000px;
+  font-weight: bold;
+  font-size: 50px;
 }
 
-.sidebar-container {
-  background-color: #f4f4f4;
-  width: 240px;
-  position: fixed; /* 화면에 고정 */
-}
-.user-info {
-  text-align: center;
-}
-
-img {
-  width: 100px;
-  height: 100px;
-  border: solid 1px black;
-  border-radius: 100px;
-  padding: 5px;
-  margin: 20px;
-}
-.hoseo-site{
-  padding-top: 100px;
+.home-small-title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-weight: normal;
+  font-size: 16px;
 }
 
-.site-link{
-  padding-left: 20px;
-  text-decoration: none;
+.home-button-container {
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.home-primary-button {
+  position: relative;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  background-color: #1890ff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.home-primary-button span {
+  display: inline-block; 
+}
+
+.home-primary-button:hover {
+  background-color: #40a9ff;
 }
