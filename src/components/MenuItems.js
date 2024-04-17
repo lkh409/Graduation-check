@@ -11,7 +11,7 @@ export const MenuItems = [
     },
     {
       title: "마이 페이지",
-      url: "/",
+      url: "/mypage",
       cName: "nav-links",
     },
   ];

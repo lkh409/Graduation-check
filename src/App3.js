@@ -9,6 +9,7 @@ import Home from './routes/Home2';
 import HoneyBoard from './routes/HoneyBoard';
 import Login from "./routes/Login2";
 import Signup from "./routes/Signup2";
+import MyPage from './routes/MyPage';
 
 function App3() {
   return (
@@ -22,6 +23,7 @@ function App3() {
         <Route path="/honeyboard" element={<HoneyBoard/>} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
+        <Route path="/mypage" element={<MyPage />} />
         </Routes>
       </div>
       <Footer/>

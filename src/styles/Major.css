@@ -1,0 +1,60 @@
+.Maj-BoxWrapp {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 580px;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Maj-EditButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .Maj-Title {
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .Maj-DescriptionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Maj-Description {
+    margin: 5px 0;
+    text-align: center;
+    margin-right: 15px;
+    font-weight: bold;
+    top: 10px;
+  }
+  
+  .Maj-RowContaine {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+  .Maj-MajorComponent .Maj-EditableCreditsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
