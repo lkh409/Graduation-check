@@ -85,6 +85,13 @@ const handleResetSort = () => {
   setSortBy(0);
 };
 
+const handleResetAll = () => {
+  handleResetCredit();
+  handleResetArea();
+  handleResetChoose();
+  handleResetSort();
+};
+
   return (
     <div className='honey-main-container'>
       <h2 className='honey-title'>교양 추천 게시판</h2>
@@ -115,7 +122,6 @@ const handleResetSort = () => {
           onSelect={(item) => setSortBy(item === '적은순' ? 1 : item === '많은순' ? 2 : 0)}
           onReset={handleResetSort} // 이 부분을 추가해야 합니다.
         />
-
       </div>
       <div className="horizontal-line"></div>
       <h2>교양 목록</h2>

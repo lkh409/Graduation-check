@@ -1,0 +1,64 @@
+.SidebarWrapper {
+    background-color: #f0f0f0;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    margin-top: 60px;
+  }
+  
+  .SidebarHeader {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 50px; 
+  }
+  
+  .ProfileImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    position: relative; 
+    top: 73px;
+  }
+  
+  .UserInfo {
+    margin-top: 70px; 
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 100px; 
+  }
+  
+  .SidebarIcon {
+    margin-right: 10px;
+  }
+  
+  .SidebarMenu {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px; 
+  }
+  
+  .SidebarMenuItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 24px;
+  }
+  
+  .ExternalLink {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar-button{
+    padding: 4px;
+    color: black;
+    background-color: #f0f0f0;
+    border: solid 1px black;
+    margin-right: 20px;
+  }
