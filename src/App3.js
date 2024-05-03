@@ -15,9 +15,9 @@ function App3() {
   return (
     <div className="app-container">
       <Router>
-        <Navbar/>
+        <Navbar/> {/*상단의 네비게이션 바 */}
       <div>
-        <Routes>
+        <Routes> {/*각 컴포넌트 페이지들 경로 설정. 네비게이션 바와 푸터 중간 메인 콘텐츠 부분에 띄워짐 */}
         <Route path="/" element={<Home/>}/>
         <Route path="/check" element={<Check_page/>}/> {/*검사하기는 메뉴에 없지만 편의상 코드를 짜면서 확인하기 편하도록 임시로 추가해놓음 */}
         <Route path="/honeyboard" element={<HoneyBoard/>} />
@@ -26,7 +26,7 @@ function App3() {
         <Route path="/mypage" element={<MyPage />} />
         </Routes>
       </div>
-      <Footer/>
+      <Footer/> {/*하단의 푸터 */}
     </Router>
     </div>
   );

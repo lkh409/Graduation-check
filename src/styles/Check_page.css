@@ -7,10 +7,10 @@
   .content-container{
     display: flex;
     margin-top: 50px;
-    display: grid;
-      grid-template-columns: repeat(3, minmax(25%, auto));
-      grid-template-rows: repeat(5, minmax(50px,auto));
-      grid-auto-flow: dense;
+    display: grid; /*그리드 컨테이너로 지정하여 차트 영역이 빈 공간을 최소화하여 일정 간격마다 보이도록 함*/
+      grid-template-columns: repeat(3, minmax(25%, auto)); /*그리드 열의 크기 설정. 3개의 열이 있고 각 열의 최소 너비는 25%이며 추가 공간이 있으면 자동으로 확장됨을 의미함*/
+      grid-template-rows: repeat(5, minmax(50px,auto)); /*그리드 행의 크기 설정. 5개의 행이 있으며 각 행의 최소 높이는 50px이고 추가 공간이 있으면 자동으로 확장됨을 의미함*/
+      grid-auto-flow: dense; /*그리드 항목들이 채워지지 않는 공간에 밀집하게 배치되도록 설정. 그리드 아이템들이 공간을 최대한 활용하고 빈 공간이 최소화됨*/
   }
   .main-content{
     margin-top: 60px;
