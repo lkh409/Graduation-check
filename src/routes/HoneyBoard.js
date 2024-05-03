@@ -1,4 +1,4 @@
-// HoneyBoard.js
+//develop3
 
 import React, { useState } from 'react';
 import Honey_list from '../components/Honey_list';
@@ -6,6 +6,7 @@ import '../styles/HoneyBoard.css';
 import DropdownBtn from '../components/Dropdown_btn';
 
 function HoneyBoard() {
+  {/*필터링에 필요한 상태들 관리 */}
   const [creditFilter, setCreditFilter] = useState(null); // 학점 관련
   const [areaFilter, setAreaFilter] = useState(null); // 선택영역 관련
   const [chooseFilter, setChooseFilter] = useState(null); // 이수구분 관련
@@ -33,7 +34,7 @@ function HoneyBoard() {
       { id: 19, sname: '과목 19', kind: '선택', choose: '자유교양', credit: '3학점', courses: '60' }
   ];
 
-  const applyFilters = () => { //필터링 기능
+  const applyFilters = () => { //필터링 기능 함수. 카테고리 버튼을 통해 원하는 값을 선택할 때마다 if문의 조건에 따라 올바르게 필터링 될 수 있도록 설정
     let filteredData = data.filter(item => {
       if (creditFilter && areaFilter && chooseFilter) {
         return item.credit === creditFilter && item.choose === areaFilter && item.kind === chooseFilter;
@@ -65,27 +66,24 @@ function HoneyBoard() {
   };
 
 
-// handleResetCredit 함수 정의
+// handleReset 함수들을 통해 각 필터 초기화 하는 기능 구현
 const handleResetCredit = () => {
   setCreditFilter(null);
 };
 
-// handleResetArea 함수 정의
 const handleResetArea = () => {
   setAreaFilter(null);
 };
 
-// handleResetChoose 함수 정의
 const handleResetChoose = () => {
   setChooseFilter(null);
 };
 
-// handleResetSort 함수 정의
 const handleResetSort = () => {
   setSortBy(0);
 };
 
-const handleResetAll = () => {
+const handleResetAll = () => { // 모든 항목을 한번에 초기화하는 함수도 만들고 싶었으나 실패
   handleResetCredit();
   handleResetArea();
   handleResetChoose();
@@ -93,40 +91,41 @@ const handleResetAll = () => {
 };
 
   return (
-    <div className='honey-main-container'>
+    <div className='honey-main-container'> {/* 메인콘텐츠 영역 */}
       <h2 className='honey-title'>교양 추천 게시판</h2>
       <h3 className='honey-exp'>카테고리 별로 원하는 교양을 찾아보세요!</h3>
-      <div className='honey-category'>
+      <div className='honey-category'> {/*카테고리 버튼용 영역 */}
         <h3>카테고리</h3>
+        {/*드롭다운 버튼 컴포넌트들을 불러와서 각 카테고리 버튼 구현 */}
         <DropdownBtn
-          drBtn_title={"학점"}
-          items={['1학점', '2학점', '3학점']}
-          onSelect={setCreditFilter}
-          onReset={handleResetCredit} // 이 부분을 추가해야 합니다.
+          drBtn_title={"학점"} // 버튼에 쓰이는 카테고리 이름
+          items={['1학점', '2학점', '3학점']} // 버튼을 눌렀을 때 보이는 리스트 목록
+          onSelect={setCreditFilter} // 리스트를 선택하면 해당 필터링 함수 실행되어 선택된 값이 업뎃될 때 상태가 변경되도록 설정
+          onReset={handleResetCredit} // 리스트의 초기화 목록을 누르면 해당 필터링 초기화
         />
         <DropdownBtn
           drBtn_title={"선택영역"}
           items={['전공선택', '전공필수', '인성교양', '일반교양', '자유교양']}
           onSelect={setAreaFilter}
-          onReset={handleResetArea} // 이 부분을 추가해야 합니다.
+          onReset={handleResetArea} 
         />
         <DropdownBtn
           drBtn_title={"이수구분"}
           items={['필수', '선택']}
           onSelect={setChooseFilter}
-          onReset={handleResetChoose} // 이 부분을 추가해야 합니다.
+          onReset={handleResetChoose} 
         />
         <DropdownBtn
           drBtn_title={"수강횟수"}
           items={['적은순', '많은순']}
-          onSelect={(item) => setSortBy(item === '적은순' ? 1 : item === '많은순' ? 2 : 0)}
-          onReset={handleResetSort} // 이 부분을 추가해야 합니다.
+          onSelect={(item) => setSortBy(item === '적은순' ? 1 : item === '많은순' ? 2 : 0)} // 선택한 리스트 값이 적은순이면 1을 대입하여 오름차순, 많은순이면 2를 대입하여 내림차순
+          onReset={handleResetSort}
         />
       </div>
-      <div className="horizontal-line"></div>
+      <div className="horizontal-line"></div> {/*카테고리 영역과 교양 목록 영역을 구분하기 위한 선 추가 용도 */}
       <h2>교양 목록</h2>
       <div className='honey-list'>
-        <Honey_list data={applyFilters()} />
+        <Honey_list data={applyFilters()} /> {/*Honey_list.js의 컴포넌트를 불러와서 필터링된 데이터값을 넘김 */}
       </div>
     </div>
   );
