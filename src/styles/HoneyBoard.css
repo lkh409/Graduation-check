@@ -7,7 +7,10 @@
 .honey-category{
     display: flex;
 }
-
+.honey-category-text{
+    margin-left: 5px;
+    margin-right: 10px;
+}
 .horizontal-line {
     width: 100%; /* 가로 선의 너비 */
     height: 1px; /* 가로 선의 높이 */
@@ -15,23 +18,30 @@
 }
 
 .honey-list{
-    height: 500px;
-    border: solid 1px dimgray;
-    overflow-y: scroll;
+    border: solid 2px white;
+    height: fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .h-list{
-    border: solid 1px dimgray;
-    width: 1500px;
+    border: solid 2px white;
+    width: 1400px;
     border-spacing: 0px;
     border-collapse: separate;
 }
 
 .h-list-thead{
-    background-color: lightgrey;
-    color: dimgray;
+    background-color:dimgray;
+    color: white;
 }
 
 .h-item{
-    border: solid 1px gray;
+    border: solid 1px white;
+}
+
+.h-list tbody tr:nth-child(even) {
+    background-color:whitesmoke; /* 짝수 행에 배경색 적용 */
 }
