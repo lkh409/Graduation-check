@@ -13,25 +13,26 @@ function HoneyBoard() {
   const [sortBy, setSortBy] = useState(0); // 수강횟수 정렬 관련
 
   const data = [ //예시 데이터들
-    { id: 1, sname: '과목 1', kind: '필수', choose: '일반교양', credit: '2학점', courses: '1190' },
-      { id: 2, sname: '과목 2', kind: '선택', choose: '자유교양', credit: '3학점', courses: '1158' },
-      { id: 3, sname: '과목 3', kind: '선택', choose: '전공선택', credit: '3학점', courses: '1123' },
-      { id: 4, sname: '과목 4', kind: '선택', choose: '일반교양', credit: '2학점', courses: '1110' },
-      { id: 5, sname: '과목 5', kind: '필수', choose: '자유교양', credit: '3학점', courses: '197' },
-      { id: 6, sname: '과목 6', kind: '선택', choose: '자유교양', credit: '2학점', courses: '190' },
-      { id: 7, sname: '과목 7', kind: '필수', choose: '자유교양', credit: '2학점', courses: '189' },
-      { id: 8, sname: '과목 8', kind: '필수', choose: '전공필수', credit: '2학점', courses: '182' },
-      { id: 9, sname: '과목 9', kind: '선택', choose: '자유교양', credit: '3학점', courses: '160' },
+    { id: 1, sname: '과목 1', kind: '필수', choose: '인성교양', credit: '2학점', courses: '1190' },
+      { id: 2, sname: '과목 2', kind: '선택', choose: '자유교양', credit: '3학점', courses: '58' },
+      { id: 3, sname: '과목 3', kind: '선택', choose: '전공선택', credit: '3학점', courses: '323' },
+      { id: 4, sname: '과목 4', kind: '선택', choose: '일반교양', credit: '2학점', courses: '210' },
+      { id: 5, sname: '과목 5', kind: '필수', choose: '인성교양', credit: '3학점', courses: '197' },
+      { id: 6, sname: '과목 6', kind: '선택', choose: '자유교양', credit: '2학점', courses: '90' },
+      { id: 7, sname: '과목 7', kind: '선택', choose: '자유교양', credit: '2학점', courses: '189' },
+      { id: 8, sname: '과목 8', kind: '필수', choose: '전공필수', credit: '2학점', courses: '482' },
+      { id: 9, sname: '과목 9', kind: '선택', choose: '자유교양', credit: '3학점', courses: '60' },
       { id: 10, sname: '과목 10', kind: '선택', choose: '일반교양', credit: '2학점', courses: '146' },
       { id: 11, sname: '과목 11', kind: '필수', choose: '인성교양', credit: '3학점', courses: '131' },
       { id: 12, sname: '과목 12', kind: '선택', choose: '전공선택', credit: '2학점', courses: '130' },
-      { id: 13, sname: '과목 13', kind: '선택', choose: '전공선택', credit: '3학점', courses: '123' },
+      { id: 13, sname: '과목 13', kind: '선택', choose: '전공선택', credit: '3학점', courses: '23' },
       { id: 14, sname: '과목 14', kind: '선택', choose: '일반교양', credit: '2학점', courses: '110' },
-      { id: 15, sname: '과목 15', kind: '필수', choose: '자유교양', credit: '3학점', courses: '97' },
-      { id: 16, sname: '과목 16', kind: '선택', choose: '자유교양', credit: '2학점', courses: '90' },
-      { id: 17, sname: '과목 17', kind: '필수', choose: '일반교양', credit: '3학점', courses: '89' },
-      { id: 18, sname: '과목 18', kind: '필수', choose: '일반교양', credit: '2학점', courses: '82' },
-      { id: 19, sname: '과목 19', kind: '선택', choose: '자유교양', credit: '3학점', courses: '60' }
+      { id: 15, sname: '과목 15', kind: '필수', choose: '기초교양', credit: '3학점', courses: '97' },
+      { id: 16, sname: '과목 16', kind: '필수', choose: '기초교양', credit: '2학점', courses: '90' },
+      { id: 17, sname: '과목 17', kind: '선택', choose: '일반교양', credit: '3학점', courses: '89' },
+      { id: 18, sname: '과목 18', kind: '선택', choose: '일반교양', credit: '2학점', courses: '182' },
+      { id: 19, sname: '과목 19', kind: '선택', choose: '자유교양', credit: '3학점', courses: '60' },
+      { id: 20, sname: '과목 20', kind: '선택', choose: '일반교양', credit: '2학점', courses: '146' }
   ];
 
   const applyFilters = () => { //필터링 기능 함수. 카테고리 버튼을 통해 원하는 값을 선택할 때마다 if문의 조건에 따라 올바르게 필터링 될 수 있도록 설정
@@ -83,19 +84,13 @@ const handleResetSort = () => {
   setSortBy(0);
 };
 
-const handleResetAll = () => { // 모든 항목을 한번에 초기화하는 함수도 만들고 싶었으나 실패
-  handleResetCredit();
-  handleResetArea();
-  handleResetChoose();
-  handleResetSort();
-};
 
   return (
     <div className='honey-main-container'> {/* 메인콘텐츠 영역 */}
-      <h2 className='honey-title'>교양 추천 게시판</h2>
-      <h3 className='honey-exp'>카테고리 별로 원하는 교양을 찾아보세요!</h3>
+        <h2 className='honey-title'>교양 추천 게시판</h2>
+        <h3 className='honey-exp'>카테고리 별로 원하는 교양을 찾아보세요!</h3>
       <div className='honey-category'> {/*카테고리 버튼용 영역 */}
-        <h3>카테고리</h3>
+        <h3 className='honey-category-text'>카테고리</h3>
         {/*드롭다운 버튼 컴포넌트들을 불러와서 각 카테고리 버튼 구현 */}
         <DropdownBtn
           drBtn_title={"학점"} // 버튼에 쓰이는 카테고리 이름
@@ -105,7 +100,7 @@ const handleResetAll = () => { // 모든 항목을 한번에 초기화하는 함
         />
         <DropdownBtn
           drBtn_title={"선택영역"}
-          items={['전공선택', '전공필수', '인성교양', '일반교양', '자유교양']}
+          items={['인성교양', '기초교양', '일반교양', '자유교양', '전공필수', '전공선택']}
           onSelect={setAreaFilter}
           onReset={handleResetArea} 
         />

@@ -1,8 +1,7 @@
 // Home2.js
 import React from 'react';
 import { Layout, Button } from 'antd';
-import { Routes, Route } from 'react-router-dom'; // BrowserRouter를 import 하지 않습니다.
-import '../styles/App3.css';
+import '../styles/Home.css';
 import '../components/MenuItems';
 import { Link } from "react-router-dom";
 
@@ -22,9 +21,11 @@ function Home() {
               style={{ margin: 'auto', display: 'block' }}
             />
             <div className="home-button-container">
+              <Link to={"/check"}>
               <Button className="home-primary-button">
-              <Link to={"/check"}>검사하기</Link>
-              </Button>
+                검사하기
+                </Button>
+              </Link>
             </div>
           </div>
         </Content>
