@@ -18,28 +18,21 @@ function Login() {
     <>
       <Navbar isLoggedIn={isLoggedIn} />{" "}
       {/* Navbar에 isLoggedIn 상태를 props로 전달 */}
-      <div className="l_container">
-        <div className="l_header">
-          <div className="l_text">로그인</div>
+      <div className="LoginContainer">
+        <div className="LoginTextHeader">
+          <div className="LoginText">로그인</div>
         </div>
 
-        <div className="l_inputs">
+        <div className="l_InputContainer">
           <div className="l_input">
             <img src={user_icon} alt="" className="l_icon" />
-            <input type="text" placeholder="아이디" />
+            <input type="text" placeholder="아이디" maxLength={8} />
           </div>
 
           <div className="l_input">
             <img src={password_icon} alt="" className="l_icon" />
-            <input type="password" placeholder="비밀번호" />
+            <input type="password" placeholder="비밀번호" maxLength={16} />
           </div>
-        </div>
-
-        <div className="l_forgot-password">
-          비밀번호를 잊으셨나요?{" "}
-          <Link to="/reset-password" style={{ textDecoration: "none" }}>
-            <span> Click Here!</span>
-          </Link>
         </div>
 
         <div className="l_submit-container">
@@ -48,11 +41,18 @@ function Login() {
           </div>{" "}
           {/* 로그인 버튼 클릭 시 handleLogin 함수 호출 */}
         </div>
-
-        <div className="go-signup">
-          <Link to="/signup" style={{ textDecoration: "none" }}>
-            <span>회원가입</span>
-          </Link>
+        <div className="loginOption">
+          <div className="go-signup">
+            <Link to="/signup" style={{ textDecoration: "none" }}>
+              <span>회원가입</span>
+            </Link>
+          </div>
+          <span className="space"> | </span>
+          <div className="findPwd">
+            <Link to="/findPwd" style={{ textDecoration: "none" }}>
+              <span>비밀번호 찾기</span>
+            </Link>
+          </div>
         </div>
       </div>
     </>
