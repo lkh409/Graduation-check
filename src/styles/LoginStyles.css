@@ -1,137 +1,186 @@
 /*로그인 창,, css*/
-.l_container {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 260px;
-    width: 400px;
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
-    background: #fff;
-    padding-bottom: 30px;
-  }
-  
-  .l_header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 9px;
-    width: 100%;
-    margin-top: 30px;
-  }
-  
-  .l_text {
-    color: rgb(0, 0, 0);
-    font-size: 35px;
-    font-weight: 700;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-  
-  .l_inputs {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .l_icon {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .l_input {
-    display: flex;
-    align-items: center;
-    margin: auto;
-    width: 350px;
-    height: 50px;
-    background: #eaeaea;
-    border-radius: 8px;
-  }
-  
-  /*입력창 앞에 아이콘 설정*/
-  .l_input img {
-    margin: 0px 30px;
-  }
-  
-  .l_input input {
-    height: 30px;
-    width: 400px;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #000000;
-    font-size: 14px;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-  
-  /*비번을 잃어버렸나요? 설정*/
-  .l_forgot-password {
-    padding-left: 1px;
-    margin-top: 20px;
-    color: #797979;
-    font-size: 13px;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-  
-  /*회원가입 링크*/
-  .go-signup span {
-    color: #797979;
-  
-    font-size: 14px;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-  
-  .go-signup span:hover {
-    color: #000000;
-  }
-  
-  /*Click Here! 설정*/
-  .l_forgot-password span {
-    color: rgb(40, 121, 228);
-    cursor: pointer;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-  
-  .l_forgot-password span:hover {
-    color: rgb(136, 44, 189);
-  }
-  
-  .l_submit-container {
-    display: flex;
-    gap: 10px;
-    margin: 15px auto;
-  }
-  
-  .l_submit {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    width: 350px;
-    height: 50px;
-    color: #fff;
-    background: #000000;
-    font-size: 18px;
-    font-weight: 400;
-    font-family: "Noto Sans KR", sans-serif;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-  }
-  
-  .gray {
-    background: #000000;
-    color: #ffffff;
-  }
-  
-  .span {
-    height: 30px;
-    width: 400px;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #000000;
-    font-size: 14px;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-  
+.LoginContainer {
+  flex-direction: column;
+  display: flex;
+  align-items: center; /*전체적으로 가운데 정렬하려고 여기에 이거 줌,,,*/
+  margin: auto;
+  margin-top: 260px;
+  width: 400px;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding-bottom: 30px;
+}
+
+.LoginTextHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+.LoginText {
+  color: rgb(0, 0, 0);
+  font-size: 35px;
+  font-weight: 700;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.l_InputContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.l_icon {
+  width: 18px;
+  height: 18px;
+}
+
+.l_input {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 350px;
+  height: 50px;
+  background: #eaeaea;
+  border-radius: 8px;
+}
+
+/*입력창 앞에 아이콘 설정*/
+.l_input img {
+  margin: 0px 25px;
+}
+
+.l_input input {
+  height: 30px;
+  width: 400px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #000000;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/*비번을 잃어버렸나요? 설정*/
+.l_forgot-password {
+  padding-left: 1px;
+  margin-top: 20px;
+  color: #797979;
+  font-size: 13px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.go-signup {
+  display: inline;
+
+  width: 75px;
+  margin-right: 10px;
+}
+
+.findPwd {
+  display: inline-block;
+
+  margin-left: 10px;
+  width: 100px;
+}
+
+/*회원가입 링크*/
+.go-signup span {
+  color: #797979;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.findPwd span {
+  color: #797979;
+
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.loginOption {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 350px;
+  margin-top: 0px;
+}
+
+.space {
+  display: inline-block;
+  color: #797979;
+  font-size: 14px;
+  font-weight: normal;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+}
+
+.go-signup span:hover {
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.findPwd span:hover {
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/*Click Here! 설정*/
+.l_forgot-password span {
+  color: rgb(40, 121, 228);
+  cursor: pointer;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.l_forgot-password span:hover {
+  color: rgb(136, 44, 189);
+}
+
+.l_submit-container {
+  display: flex;
+  gap: 10px;
+  margin: 15px auto;
+}
+
+.l_submit {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  width: 350px;
+  height: 50px;
+  color: #fff;
+  background: #000000;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.gray {
+  background: #000000;
+  color: #ffffff;
+}
+
+.span {
+  height: 30px;
+  width: 400px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #000000;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+}

@@ -1,0 +1,70 @@
+.app-layout {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  .app-content {
+    margin-top: 64px;
+    width: 100%;
+    position: relative;
+    flex: 1; 
+  }
+  
+  .home-image-container {
+    width: 100%;
+    position: relative; /* 상대 위치 설정은 유지 */
+    left: 0;
+    opacity: 0.8;
+  }
+  
+  
+  .home-image-container img {
+    width: 100%; 
+    border-radius: 0;
+  }
+  
+  .home-big-title {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+  }
+  
+  .home-small-title {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: normal;
+    font-size: 16px;
+  }
+  
+  .home-button-container {
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+  
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .home-primary-button {
+    margin: auto;
+    position: relative;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+    border: solid 1px black;
+  }

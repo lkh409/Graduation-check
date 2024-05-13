@@ -15,6 +15,7 @@ function DropdownBtn({ drBtn_title, items, onSelect, onReset, type }) { // 버�
     const handleClickOutside = (event) => { // 드롭다운이 열린 상태에서 외부를 클릭하면 드롭다운을 닫을 수 있도록 설정
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
+        setArrowDirection('∨');
       }
     };
 
