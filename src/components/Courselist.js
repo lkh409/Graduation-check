@@ -7,25 +7,25 @@ const CourseList = () => {
         <h3>수강과목 리스트</h3>
         <div className="Cor-LineWrapper">
           <div className="Cor-Line">
-            <span className="Cor-RowText">Row1</span>
+            <span className="Cor-RowText"></span>
           </div>
           <div className="Cor-Line">
-            <span className="Cor-RowText">Row2</span>
+            <span className="Cor-RowText"></span>
           </div>
           <div className="Cor-Line">
-            <span className="Cor-RowText">Row3</span>
+            <span className="Cor-RowText"></span>
           </div>
           <div className="Cor-Line">
-            <span className="Cor-RowText">Row4</span>
+            <span className="Cor-RowText"></span>
           </div>
           <div className="Cor-Line">
-            <span className="Cor-RowText">Row5</span>
+            <span className="Cor-RowText"></span>
           </div>
           <div className="Cor-Line">
-            <span className="Cor-RowText">Row6</span>
+            <span className="Cor-RowText"></span>
           </div>
           <div className="Cor-Line">
-            <span className="Cor-RowText">Row7</span>
+            <span className="Cor-RowText"></span>
           </div>
         </div>
       </div>

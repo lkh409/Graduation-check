@@ -7,12 +7,14 @@
     border-radius: 5px;
     padding: 30px; 
     margin: 20px;
-    width: 550px; 
-    height: 340px; 
+    width: 700px; 
+    height: 358px; 
     display: flex; 
     flex-direction: column; /* 세로 방향으로 요소들을 배열 */
     align-items: center; /* 가운데 정렬로 변경합니다. */
     justify-content: center; /* 가운데 정렬로 변경합니다. */
+    top: 10px; /* BoxWrap을 아래로 내리려면 top 속성을 조정합니다. */
+    left: -9px; /* BoxWrap을 옆으로 이동시키려면 left 속성을 조정합니다. */
 }
 
 .Lib-Title {
@@ -20,6 +22,7 @@
     position: absolute;
     top: 10px;
     left: 10px;
+    font-size: 30px;
 }
   
 .Lib-EditButton {
@@ -75,7 +78,12 @@
     flex-direction: column;
     align-items: flex-end;
 }
-  
+
+.Lib-CreditInput {
+    width: 50px; /* 원하는 너비로 설정합니다. */
+    height: 30px; /* 원하는 높이로 설정합니다. */
+}
+
 .Lib-Credit {
     margin: 5px 0;
     font-weight: bold;

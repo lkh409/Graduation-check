@@ -1,45 +1,45 @@
 .Cor-BoxWrapping {
-    position: relative;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    width: 1140px;
-    height: auto;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-  
-  .Cor-LineWrapper {
-    width: 80%;
-    margin: auto;
-    text-align: center;
-  }
-  
-  .Cor-Line {
-    width: 980%;
-    height: 1px;
-    background-color: #000;
-    margin: 35px 20px;
-    position: relative;
-  }
-  
-  .Cor-RowText {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    transform: translateY(-50%);
-  }
-  
-  .Cor-Col {
-    position: absolute;
-    top: 60px;
-    text-align: center;
-    color: #666;
-    right: 20px;
-  }
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 1173px;
+  height: auto;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.Cor-LineWrapper {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.Cor-Line {
+  width: 980%;
+  height: 1px;
+  background-color: #000;
+  margin: 35px 20px;
+  position: relative;
+}
+
+.Cor-RowText {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.Cor-Col {
+  position: absolute;
+  top: 60px;
+  text-align: center;
+  color: #666;
+  right: 20px;
+}
   
