@@ -5,38 +5,34 @@
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
-    width: 580px;
-    height: 170px;
+    width: 620px;
+    height: 180px; /* 높이를 조정하여 편집하는 칸의 크기를 줄입니다. */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* 추가된 속성 */
     flex-wrap: wrap; /* 요소들이 한 줄에 모두 표시되지 않고 여러 줄로 나뉘도록 설정 */
+    top: 7px;
+    left: -5px;
 }
 
 .Act-EditButton {
     position: absolute;
     top: 10px;
     right: 10px;
-    margin-bottom: 180%;
-    margin-left: 550%;
     background-color: black;
     color: white;
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
     cursor: pointer;
-    /* 수정된 속성 */
-    position: static; /* 절대 위치에서 상대 위치로 변경 */
 }
 
-.Act-box-titleAndEdit{
+.Act-box-titleAndEdit {
     display: flex;
-    flex:1;
+    flex: 1;
 }
 
 .ActivityTitle {
-    margin: 0;
     margin: 0;
     position: absolute;
     top: 10px;
@@ -44,22 +40,32 @@
 }
 
 .Act-Tag {
-    margin-right: 150px;
     font-weight: bold;
+    margin-right: 150px;
     /* 수정된 속성 */
-    position: static; /* 절대 위치에서 상대 위치로 변경 */
+    position: row; /* 절대 위치에서 상대 위치로 변경 */
+    margin-top: 30%;
+}
+
+.Act-Input {
+    width: 50px; /* 원하는 크기로 조정합니다. */
+    height: 20px; /* 원하는 높이로 조정합니다. */
 }
 
 .Act-TagContainer {
     display: flex;
     align-items: center;
-    margin-right: 40px; /* 태그 간 간격을 조절합니다. */
-  }
-  
+    margin-right: 50px; /* 태그 간 간격을 조절합니다. */
+    flex-direction: row;
+}
+
+.Act-CreditWrapper {
+    flex-direction: row;
+    margin-bottom: -13%;
+}
+
 .Act-Progress {
     color: blue; /* 또는 red */
-    position: relative;
-    position: row;
 }
 
 

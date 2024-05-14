@@ -5,7 +5,7 @@
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
-  width: 1140px;
+  width: 1173px;
   min-height: 130px;
   display: flex;
   flex-direction: column;
@@ -32,26 +32,27 @@
 
 .Req-Achievement {
   color: blue;
-  margin: 10px 0;
+  margin: 150px;
 }
 
 .Req-Unachieved {
   color: red;
-  margin: 10px 0;
+  margin: 150px;
 }
 
 .Req-Title {
+  top: 10px;
   margin: -10px 0; /* Adjusted top and bottom margins */
 }
 
 .Req-OptionalText {
   color: gray;
-  margin: 10px 0;
+  margin: 10px;
 }
 
 .Req-MandatoryText {
   color: gray;
-  margin: 10px 0;
+  margin: 10px;
 }
 
   

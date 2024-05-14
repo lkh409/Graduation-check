@@ -1,64 +1,80 @@
-.SidebarWrapper {
-    background-color: #f0f0f0;
-    width: 250px;
-    height: 100%;
-    padding: 20px;
-    margin-top: 60px;
-  }
-  
-  .SidebarHeader {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 50px; 
-  }
-  
-  .ProfileImage {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 30px;
-    position: relative; 
-    top: 73px;
-  }
-  
-  .UserInfo {
-    margin-top: 70px; 
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 100px; 
-  }
-  
-  .SidebarIcon {
-    margin-right: 10px;
-  }
-  
-  .SidebarMenu {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px; 
-  }
-  
-  .SidebarMenuItem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    height: 24px;
-  }
-  
-  .ExternalLink {
-    color: #333;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
+/* SidebarStyles.css */
 
-  .sidebar-button{
-    padding: 4px;
-    color: black;
-    background-color: #f0f0f0;
-    border: solid 1px black;
-    margin-right: 20px;
-  }
+.SidebarWrapper {
+  background-color: #f0f0f0;
+  width: 250px;
+  height: 130%;
+  padding: 20px;
+}
+
+.SidebarHeader {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 70px; 
+}
+
+.ProfileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 70px;
+  position: relative; 
+  top: 73px;
+}
+
+.UserInfo > div:not(:first-child) {
+  margin-top: 20px; 
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px; 
+}
+
+.UserInfo > div:first-child {
+  margin-top: 20px; /* 이름 요소 위쪽의 여백 조정 */
+  text-align: center;
+  font-size: 14px;
+}
+
+.sidebar-button {
+  padding: 8px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px; /* Added margin to match the profile text */
+  margin-left: 1px; /* Adjusted margin to move the button slightly to the left */
+}
+
+
+
+.SidebarIcon {
+  margin-right: 10px;
+}
+
+.SidebarMenu {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px; 
+}
+
+.SidebarMenuItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  height: 24px;
+}
+
+.ExternalLink {
+  margin-top: 240%;
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
