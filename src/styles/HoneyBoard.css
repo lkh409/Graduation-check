@@ -19,7 +19,8 @@
 
 .honey-list{
     border: solid 2px white;
-    height: fit-content;
+    height: 400px;
+    overflow-y:auto;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -36,6 +37,7 @@
 .h-list-thead{
     background-color:dimgray;
     color: white;
+    height: 35px;
 }
 
 .h-item{
