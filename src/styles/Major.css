@@ -5,26 +5,14 @@
   border-radius: 5px;
   padding: 13px;
   margin: 10px;
-  width: 616px;
-  height: 180px;
+  width: 615.5px;
+  height: 175px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: 5px;
-  left: -5px
-}
-
-.Maj-EditButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
+  top: 9px;
+  left: -35px
 }
 
 .Maj-Title {
@@ -32,6 +20,7 @@
   position: absolute;
   top: 10px;
   left: 10px;
+  font-size: 28px;
 }
 
 .Maj-DescriptionContainer {
@@ -51,11 +40,6 @@
 .Maj-Credits {
   margin: 5px 0;
 }
-
-.Maj-Credits input {
-  width: 50px; /* 원하는 너비로 설정합니다. */
-}
-
 
 .Maj-RowContaine {
   display: flex;

@@ -4,6 +4,7 @@ import { Layout, Button } from 'antd';
 import '../styles/Home.css';
 import '../components/MenuItems';
 import { Link } from "react-router-dom";
+import cherry from "../assets/cherry-blossom.jpg"
 
 function Home() {
   const { Content } = Layout;
@@ -16,9 +17,9 @@ function Home() {
             <div className="home-big-title">Graduation, the moment</div>
             <div className="home-small-title">Never give up, your dreams will come true</div>
             <img
-              src="https://cdn.pixabay.com/photo/2019/02/07/11/22/learn-3980941_1280.jpg"
+              src={cherry}
               alt="사진"
-              style={{ margin: 'auto', display: 'block' }}
+              style={{ margin: 'auto', display: 'block', filter: 'brightness(0.92)' }}
             />
             <div className="home-button-container">
               <Link to={"/check"}>
