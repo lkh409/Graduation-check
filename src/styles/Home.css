@@ -1,70 +1,80 @@
 .app-layout {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-  }
-  
-  .app-content {
-    margin-top: 64px;
-    width: 100%;
-    position: relative;
-    flex: 1; 
-  }
-  
-  .home-image-container {
-    width: 100%;
-    position: relative; /* 상대 위치 설정은 유지 */
-    left: 0;
-    opacity: 0.8;
-  }
-  
-  
-  .home-image-container img {
-    width: 100%; 
-    border-radius: 0;
-  }
-  
-  .home-big-title {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-weight: bold;
-    font-size: 50px;
-  }
-  
-  .home-small-title {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-weight: normal;
-    font-size: 16px;
-  }
-  
-  .home-button-container {
-    position: absolute;
-    bottom: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: fit-content;
-    height: fit-content;
-  
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .home-primary-button {
-    margin: auto;
-    position: relative;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    color: #fff;
-    border: solid 1px black;
-  }
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.app-content {
+  margin-top: 64px;
+  width: 100%;
+  position: relative;
+  flex: 1; 
+}
+
+.home-image-container {
+  width: 100%;
+  position: relative; /* 상대 위치 설정은 유지 */
+  left: 0;
+  opacity: 0.8;
+}
+
+
+.home-image-container img {
+  width: 100%; 
+  border-radius: 0;
+}
+
+.home-big-title {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-weight: bold;
+  font-size: 80px;
+  width: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+  z-index: 2;
+}
+
+.home-small-title {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-weight: normal;
+  font-size: 30px;
+  font-family: "Noto Sans KR", sans-serif;
+  z-index: 2;
+}
+
+.home-button-container {
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 70px;
+  border: none;
+
+  cursor: pointer;
+}
+
+.home-primary-button {
+  margin: auto;
+  position: relative;
+  display: flex; 
+  width: 120px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: #fff;
+  border: solid 1px black;
+  font-size: 20px;
+  font-weight: medium;
+  font-family: inherit;
+  border-radius: 0.3rem;
+  font-family: "Noto Sans KR", sans-serif;
+}

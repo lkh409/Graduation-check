@@ -42,7 +42,7 @@
 
 .Req-Title {
   top: 10px;
-  margin: -10px 0; /* Adjusted top and bottom margins */
+  margin: -5px 0; /* Adjusted top and bottom margins */
 }
 
 .Req-OptionalText {
@@ -54,5 +54,4 @@
   color: gray;
   margin: 10px;
 }
-
   
