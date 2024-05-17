@@ -95,7 +95,6 @@ const handleResetSort = () => {
           onReset={handleResetSort}
         />
       </div>
-      <div className="horizontal-line"></div> {/*카테고리 영역과 교양 목록 영역을 구분하기 위한 선 추가 용도 */}
       <h2>교양 목록</h2>
       <div className='honey-list'>
         <Honey_list honey_data={applyFilters()} /> {/*Honey_list.js의 컴포넌트를 불러와서 필터링된 데이터값을 넘김 */}

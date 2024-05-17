@@ -6,15 +6,11 @@
 }
 .honey-category{
     display: flex;
+    border-bottom: solid 1px black;
 }
 .honey-category-text{
     margin-left: 5px;
     margin-right: 10px;
-}
-.horizontal-line {
-    width: 100%; /* 가로 선의 너비 */
-    height: 1px; /* 가로 선의 높이 */
-    background-color: #000; /* 가로 선의 색상 */
 }
 
 .honey-list{
@@ -29,7 +25,7 @@
 
 .h-list{
     border: solid 2px white;
-    width: 1400px;
+    width: 1500px;
     border-spacing: 0px;
     border-collapse: separate;
 }
