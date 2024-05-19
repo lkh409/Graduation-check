@@ -1,6 +1,6 @@
 // Home2.js
 import React from 'react';
-import { Layout, Button } from 'antd';
+import { Layout} from 'antd';
 import '../styles/Home.css';
 import '../components/MenuItems';
 import { Link } from "react-router-dom";
@@ -23,9 +23,9 @@ function Home() {
             />
             <div className="home-button-container">
               <Link to={"/check"}>
-              <Button className="home-primary-button">
+              <button className="home-primary-button">
                 검사하기
-                </Button>
+                </button>
               </Link>
             </div>
           </div>

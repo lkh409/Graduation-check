@@ -61,19 +61,19 @@ const Sidebar = () => {
       </ul>
       {/* 모달 컴포넌트 */}
       {isModalOpen && (
-        <div className="Modal">
+        <div className="Side-Modal">
           {/* 모달 내용 */}
-          <div className="ModalContent">
-            <span className="CloseModalButton" onClick={handleCloseModal}>×</span>
-            <div className="ModalHeaderText">정보 수정하기</div> 
+          <div className="Side-ModalContent">
+            <span className="Side-CloseModalButton" onClick={handleCloseModal}>×</span>
+            <div className="Side-ModalHeaderText">정보 수정하기</div> 
             <form onSubmit={handleSubmit}>
-              <label>이름:</label>
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-              <label>학번:</label>
-              <input type="text" value={studentNumber} onChange={(e) => setStudentNumber(e.target.value)} />
-              <label>학과:</label>
-              <input type="text" value={department} onChange={(e) => setDepartment(e.target.value)} />
-              <button type="submit">저장</button>
+              <label className="Side-label">이름:</label>
+              <input className="side-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+              <label className="Side-label">학번:</label>
+              <input className="side-input" type="text" value={studentNumber} onChange={(e) => setStudentNumber(e.target.value)} />
+              <label className="Side-label" >학과:</label>
+              <input className="side-input" type="text" value={department} onChange={(e) => setDepartment(e.target.value)} />
+              <button className="side-button" type="submit">저장</button>
             </form>
           </div>
         </div>
