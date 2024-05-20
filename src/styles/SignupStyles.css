@@ -5,7 +5,7 @@
   margin: auto;
   margin-top: 260px;
   width: 400px;
-  height: 600px;
+  height: 700px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
   background: #fff;
   padding-bottom: 30px;
@@ -78,10 +78,8 @@
 }
 
 .s_submit-container {
-  display: flex;
   align-items: center;
   justify-content: center;
-  align-items: center;
   display: flex;
   gap: 10px;
   margin: 15px auto;
@@ -90,7 +88,7 @@
 .s_submit {
   width: 100%; /* 버튼을 컨테이너 너비에 맞게 조절 */
   margin: 0; /* 외부 마진 제거 */
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,4 +107,65 @@
 .s_submit:hover {
   color: #fff;
   background: #9c9c9c;
+}
+
+.line {
+  margin-top: -10px;
+  border-top: 1px solid #d0d0d0;
+}
+
+.Agreement {
+  width: 350px; /* 부모 컨테이너의 너비에 맞추기 */
+  margin: auto; /* 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.agree1 {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.agree2 {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.showMore2 {
+  margin-left: auto;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.agree3-box {
+  margin-top: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.agree3 {
+  font-size: 13px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.showMore3 {
+  margin-left: auto;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  text-decoration: underline;
 }

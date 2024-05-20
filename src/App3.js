@@ -31,7 +31,8 @@ function App3() {
             <Route path="/findPwd" element={<FindPwd />} />
           </Routes>
         </div>
-        <Footer /> {/*하단의 푸터 */}
+        <Footer />
+        {/*하단의 푸터 */}
       </Router>
     </div>
   );
