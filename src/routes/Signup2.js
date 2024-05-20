@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar2";
 import user_icon from "../assets/user_icon.png";
 import student_icon from "../assets/student_icon.png";
@@ -10,14 +10,18 @@ import "../styles/SignupStyles.css";
 import "../styles/Signup_dropbtn.css";
 
 function Signup() {
+  const [checkList, setCheckList] = useState([]); //이용약관 하려고..
+
   const [email, setEmail] = useState("");
   const [studentId, setStudentId] = useState("");
+  const [name, setName] = useState(""); // 이름 입력 상태 변수
   const [pwd, setPwd] = useState("");
   const [confirmPwd, setConfirmPwd] = useState("");
   const [major, setMajor] = useState(""); // 선택된 학과
 
   const [emailMsg, setEmailMsg] = useState("");
   const [studentIdMsg, setStudentIdMsg] = useState("");
+  const [nameMsg, setNameMsg] = useState(""); //이름 입력 여부 메세지
   const [pwdMsg, setPwdMsg] = useState("");
   const [confirmPwdMsg, setConfirmPwdMsg] = useState("");
   const [majorMsg, setMajorMsg] = useState(""); // 학과 선택 여부 메시지
@@ -28,6 +32,18 @@ function Signup() {
   //const handleSelect = (selectedItem) => {
   //console.log("Selected item:", selectedItem);
   //};
+
+  // 체크박스 전체선택시 모두선택 체크박스 활성화시키기
+  const handleCheck = (e) => {
+    e.target.checked
+      ? setCheckList([...checkList, e.target.name])
+      : setCheckList(checkList.filter((el) => el !== e.target.name));
+  };
+
+  // 전체체크 선택시 전체 선택 or 전체해제
+  const checkAll = (e) => {
+    e.target.checked ? setCheckList(["terms", "privacy"]) : setCheckList([]);
+  };
 
   const handleReset = () => {
     console.log("Dropdown reset");
@@ -43,6 +59,12 @@ function Signup() {
     const studentId = e.target.value;
     setStudentId(studentId);
     studentIdCheckHandler(studentId); // 학번 유효성 확인 함수 호출
+  };
+
+  const onChangeNameHandler = (e) => {
+    const nameValue = e.target.value;
+    setName(nameValue);
+    nameCheckHandler(nameValue); // 이름 유효성 확인 함수 호출
   };
 
   const onChangePwdHandler = (e) => {
@@ -103,6 +125,17 @@ function Signup() {
     }
   };
 
+  const nameCheckHandler = (name) => {
+    // 이름 유효성 검사 Handler 구현
+    if (name === "") {
+      setNameMsg("이름을 입력해주세요.");
+      return false;
+    } else {
+      setNameMsg("");
+      return true;
+    }
+  };
+
   const pwdCheckHandler = (pwd, confirmPwd) => {
     //비밀번호 유효성 검사 Handler 구현
     const pwdRegex = /^[a-z\d!@*&-_]{8,16}$/;
@@ -145,6 +178,18 @@ function Signup() {
             {emailMsg && (
               <p className={emailMsg ? "s_message" : ""}>{emailMsg}</p>
             )}
+          </div>
+
+          <div className="s_InputContainer">
+            <div className="s_input">
+              <img src={user_icon} alt="" className="icon" />
+              <input
+                type="text"
+                placeholder="이름"
+                onChange={onChangeNameHandler}
+              />
+            </div>
+            {nameMsg && <p className={nameMsg ? "s_message" : ""}>{nameMsg}</p>}
           </div>
 
           <div className="s_InputContainer">
@@ -213,6 +258,50 @@ function Signup() {
               />
             </div>
             {majorMsg && <p className="s_message">{majorMsg}</p>}
+          </div>
+
+          <div className="Agreement">
+            <div className="agree1">
+              <div>
+                <input
+                  type="checkbox"
+                  name="checkAll"
+                  onChange={checkAll}
+                  checked={checkList.length === 2 ? true : false}
+                />
+                아래 내용에 모두 동의합니다.
+              </div>
+            </div>
+
+            <div className="line"></div>
+
+            <div className="agree2">
+              <div>
+                <input
+                  type="checkbox"
+                  name="terms"
+                  onChange={handleCheck}
+                  checked={checkList.includes("terms") ? true : false}
+                />
+                [필수] 이용약관 동의
+              </div>
+              <div className="showMore2">상세보기</div>
+            </div>
+
+            <div className="agree3-box">
+              <div className="agree3">
+                <div>
+                  <input
+                    type="checkbox"
+                    name="privacy"
+                    onChange={handleCheck}
+                    checked={checkList.includes("privacy") ? true : false}
+                  />
+                  [필수] 개인정보 수집 이용 동의
+                </div>
+              </div>
+              <div className="showMore3">상세보기</div>
+            </div>
           </div>
           <div className="s_submit-container">
             <button className="s_submit" onClick={handleSubmit}>
