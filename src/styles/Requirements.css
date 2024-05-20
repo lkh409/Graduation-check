@@ -33,11 +33,13 @@
 .Req-Achievement {
   color: blue;
   margin: 150px;
+  visibility:hidden;
 }
 
 .Req-Unachieved {
   color: red;
   margin: 150px;
+  visibility:hidden;
 }
 
 .Req-Title {
@@ -48,10 +50,12 @@
 .Req-OptionalText {
   color: gray;
   margin: 10px;
+  visibility:hidden;
 }
 
 .Req-MandatoryText {
   color: gray;
   margin: 10px;
+  visibility:hidden;
 }
   
