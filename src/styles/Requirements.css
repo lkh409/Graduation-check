@@ -6,7 +6,7 @@
   padding: 10px;
   margin: 10px;
   width: 1173px;
-  min-height: 130px;
+  height: 130px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -25,9 +25,137 @@
 }
 
 .Req-Text {
-  margin: 0;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.Req-Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.Req-ModalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 100%;
+  display: flex; 
+  flex-direction: column; /* 내용을 수직 가운데로 정렬하기 위해 수정 */
+  align-items: center; /* 내용을 수평 가운데로 정렬하기 위해 수정 */
+}
+
+.Req-AddSubjectButton {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px 10px; /* 패딩 크기 줄이기 */
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.Req-AddButton {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px 10px; /* 패딩 크기 줄이기 */
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: -2px;
+ 
+}
+
+.Req-CloseButton {
+  position: absolute;
+  top: 360px;
+  right: 600px;
+  color: black; /* Change text color to black */
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  background-color: transparent; /* Set background color to transparent */
+  font-weight: bold; /* Make the "x" symbol bold */
+}
+
+.Req-Sections {
+  display: flex;
+  flex-direction: column;
+}
+
+.Req-Section {
+  margin-bottom: 10px; /* 섹션 간 간격 줄이기 */
+}
+
+.Req-SectionTitle {
   font-weight: bold;
-  margin-top: 50px; /* Adjusted top margin */
+  margin-bottom: 5px; /* 제목 아래 간격 줄이기 */
+}
+
+.Req-Input {
+  display: inline-block;
+  width: 180px; /* 입력 칸과 드롭다운 칸의 너비 줄이기 */
+  padding: 5px; /* 패딩 크기 줄이기 */
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.Req-InputWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.Req-InputLabel {
+  margin-right: 10px;
+}
+
+.Req-Dropdown{
+  display: inline-block;
+  width: 190px; /* 입력 칸과 드롭다운 칸의 너비 줄이기 */
+  padding: 5px; /* 패딩 크기 줄이기 */
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.Req-DropdownWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.Req-AddedItems {
+  margin-top: 10px; /* 추가된 항목 리스트의 위쪽 간격 줄이기 */
+}
+
+.Req-AddedItem {
+  padding: 5px; /* 패딩 크기 줄이기 */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 5px; /* 항목 간 간격 줄이기 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Req-DeleteButton {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px 10px; /* 패딩 크기 줄이기 */
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .Req-Achievement {

@@ -4,28 +4,28 @@ import { FiHome } from "react-icons/fi";
 import "../styles/sidebar.css";
 
 const Sidebar = () => {
-  // 수정할 정보의 상태 설정
   const [name, setName] = useState("김이름");
   const [studentNumber, setStudentNumber] = useState("123456789");
   const [department, setDepartment] = useState("컴퓨터공학과");
-  // 모달 열림 여부를 추적하는 상태 설정
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [tempName, setTempName] = useState(name);
+  const [tempStudentNumber, setTempStudentNumber] = useState(studentNumber);
+  const [tempDepartment, setTempDepartment] = useState(department);
 
-  // 정보 수정하기 버튼 클릭 핸들러
   const handleEditButtonClick = () => {
-    setIsModalOpen(true); // 모달 열기
+    setIsModalOpen(true);
   };
 
-  // 모달 닫기 핸들러
   const handleCloseModal = () => {
-    setIsModalOpen(false); // 모달 닫기
+    setIsModalOpen(false);
+    setTempName(name);
+    setTempStudentNumber(studentNumber);
+    setTempDepartment(department);
   };
 
-  // 정보 제출 핸들러
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: 서버로 수정된 정보 전송
-    setIsModalOpen(false); // 모달 닫기
+    setIsModalOpen(false);
   };
 
   return (
@@ -53,27 +53,38 @@ const Sidebar = () => {
           </a>
         </li>
         <li className="SidebarMenuItem">
-          <a className="ExternalLink" href="https://sso.hoseo.edu/svc/tk/Auth.do?id=NEW_PORTAL&ac=Y&ifa=N&" target="_blank" rel="noopener noreferrer">
+          <a className="ExternalLink" href="https://sso.hoseo.edu/svc/tk/Auth.do?id=NEW_PORTAL&ac=Y&ifa=N" target="_blank" rel="noopener noreferrer">
             <div className="SidebarIcon"><FiHome /></div>
             호서대 포털시스템
           </a>
         </li>
       </ul>
-      {/* 모달 컴포넌트 */}
       {isModalOpen && (
         <div className="Side-Modal">
-          {/* 모달 내용 */}
           <div className="Side-ModalContent">
             <span className="Side-CloseModalButton" onClick={handleCloseModal}>×</span>
-            <div className="Side-ModalHeaderText">정보 수정하기</div> 
+            <div className="Side-ModalHeaderText">정보 수정하기</div>
             <form onSubmit={handleSubmit}>
-              <label className="Side-label">이름:</label>
-              <input className="side-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
-              <label className="Side-label">학번:</label>
-              <input className="side-input" type="text" value={studentNumber} onChange={(e) => setStudentNumber(e.target.value)} />
-              <label className="Side-label" >학과:</label>
-              <input className="side-input" type="text" value={department} onChange={(e) => setDepartment(e.target.value)} />
-              <button className="side-button" type="submit">저장</button>
+              <div className="side-input-wrapper">
+                <label className="Side-label">이름:</label>
+                <input className="side-input" type="text" value={tempName} onChange={(e) => setName(e.target.value)} maxLength={10} />
+              </div>
+              <div className="side-input-wrapper">
+                <label className="Side-label">학번:</label>
+                <input className="side-input" type="text" value={tempStudentNumber} onChange={(e) => setStudentNumber(e.target.value)} maxLength={9} />
+              </div>
+              <div className="side-input-wrapper">
+                <label className="Side-label">학과:</label>
+                <select className="side-input" value={tempDepartment} onChange={(e) => setDepartment(e.target.value)}>
+                  <option value="컴퓨터공학과">컴퓨터공학과</option>
+                  <option value="전자공학과">전자공학과</option>
+                  <option value="화학공학과">화학공학과</option>
+                </select>
+              </div>
+              <div className="side-button-wrapper">
+                <button className="side-button" type="submit">저장</button>
+                <button className="side-delete-button">회원탈퇴</button>
+              </div>
             </form>
           </div>
         </div>
@@ -83,4 +94,11 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+
+
+
+
+
+
 
