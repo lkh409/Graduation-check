@@ -7,7 +7,7 @@ import major_icon from "../assets/major_icon.png";
 import DropdownBtn from "../components/Dropdown_btn";
 import "../styles/SignupStyles.css";
 import "../styles/Signup_dropbtn.css";
-import api from '../api'; // API 함수 임포트
+import api from '../api'; // API 
 
 function Signup() {
   const [checkList, setCheckList] = useState([]); // 이용약관 하려고..
@@ -166,7 +166,7 @@ function Signup() {
       if (response.status === 201) {
         alert('회원가입이 성공적으로 완료되었습니다.');
         // 회원가입 성공 후 추가 작업 (마이 페이지로 이동)
-        localStorage.setItem(response.token);
+        localStorage.setItem('token',response.token);
         window.location.href = '/mypage';
       } else if (response.status === 409) {
         alert(`회원가입 실패: ${response.message}`);
@@ -247,10 +247,9 @@ function Signup() {
 
   return (
     <>
-      <Navbar />
       <div className="SignupContainer">
         <div className="SingnupTextHeader">
-          <div className="SignupText">회원가입</div>
+          <div className="SingupText">회원가입</div>
         </div>
 
         <div className="s_InputWrapper">

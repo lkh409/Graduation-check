@@ -16,8 +16,11 @@ function Login() {
     const response = await api.auth.login(loginOptions)
     if (response.status === 200) {
       setIsLoggedIn(true)
-      alert(response.token)
+      alert('로그인 성공');
       // 토큰 정보를 저장합니다
+      localStorage.setItem('token', response.token);
+      // 마이 페이지로 리디렉션
+      window.location.href = '/mypage';
       return
     }
 
