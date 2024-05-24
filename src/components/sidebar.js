@@ -11,6 +11,7 @@ const Sidebar = () => {
   const [tempName, setTempName] = useState(name);
   const [tempStudentNumber, setTempStudentNumber] = useState(studentNumber);
   const [tempDepartment, setTempDepartment] = useState(department);
+  const [isError, setIsError] = useState();
 
   const handleEditButtonClick = () => {
     setIsModalOpen(true);
@@ -18,6 +19,7 @@ const Sidebar = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    // 모달 닫을 때 임시 상태를 초기 상태로 설정
     setTempName(name);
     setTempStudentNumber(studentNumber);
     setTempDepartment(department);
@@ -25,7 +27,20 @@ const Sidebar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsModalOpen(false);
+    if (!/^[0-9]+$/.test(tempStudentNumber)) {
+      setIsError(true); // 숫자가 아닌 문자가 포함되어 있으면 isError 상태를 true로 설정
+      return; // 함수 종료
+    }
+    // 숫자가 입력된 경우 처리하는 로직
+  };
+
+  // 숫자만 입력되도록 확인하는 함수
+  const handleNumericInput = (e) => {
+    const value = e.target.value;
+    // 정규 표현식을 사용하여 숫자가 아닌 문자가 입력되면 공백으로 대체
+    const numericValue = value.replace(/\D/g, '');
+    // 숫자만 입력되도록 상태 업데이트
+    setTempStudentNumber(numericValue);
   };
 
   return (
@@ -67,18 +82,24 @@ const Sidebar = () => {
             <form onSubmit={handleSubmit}>
               <div className="side-input-wrapper">
                 <label className="Side-label">이름:</label>
-                <input className="side-input" type="text" value={tempName} onChange={(e) => setName(e.target.value)} maxLength={10} />
+                {/* 임시 상태를 값으로 설정하고 onChange 이벤트 핸들러를 통해 업데이트 */}
+                <input className="side-input" type="text" value={tempName} onChange={(e) => setTempName(e.target.value)} maxLength={4} />
               </div>
               <div className="side-input-wrapper">
                 <label className="Side-label">학번:</label>
-                <input className="side-input" type="text" value={tempStudentNumber} onChange={(e) => setStudentNumber(e.target.value)} maxLength={9} />
+                <input className="side-input" type="text" value={tempStudentNumber} onChange={handleNumericInput} maxLength={8} />
+                {/* 숫자가 아닌 다른 문자 입력 시 안내 메시지 표시 */}
+                {!/^\d+$/.test(tempStudentNumber) && <div className="Side-ErrorMessage">숫자만 입력하세요.</div>}
               </div>
               <div className="side-input-wrapper">
                 <label className="Side-label">학과:</label>
-                <select className="side-input" value={tempDepartment} onChange={(e) => setDepartment(e.target.value)}>
-                  <option value="컴퓨터공학과">컴퓨터공학과</option>
-                  <option value="전자공학과">전자공학과</option>
-                  <option value="화학공학과">화학공학과</option>
+                <select className="side-input" value={tempDepartment} onChange={(e) => setTempDepartment(e.target.value)}>
+                  <option value="컴퓨터공학부">컴퓨터공학부</option>
+                  <option value="제약공학과">제약공학과</option>
+                  <option value="화장품생명공학부">화장품생명공학부</option>
+                  <option value="건강기능식품학과">건강기능식품학과</option>
+                  <option value="글로벌통상학과">글로벌통상학과</option>
+                  <option value="영어영문학과">영어영문학과</option>
                 </select>
               </div>
               <div className="side-button-wrapper">
@@ -94,6 +115,11 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+
+ 
+
+
 
 
 
