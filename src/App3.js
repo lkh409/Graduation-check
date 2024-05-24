@@ -11,6 +11,7 @@ import Login from "./routes/Login2";
 import Signup from "./routes/Signup2";
 import MyPage from "./routes/MyPage";
 import FindPwd from "./routes/FindPwd";
+import CourseSearchPage from "./components/SearchPage";
 
 function App3() {
   return (
@@ -29,6 +30,7 @@ function App3() {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/findPwd" element={<FindPwd />} />
+            <Route path="/CourseSearchPage" element={<CourseSearchPage />} />
           </Routes>
         </div>
         <Footer />

@@ -30,36 +30,49 @@
   margin-top: 10px;
 }
 
-.Req-Modal {
+.Req-ModalBackground {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.Req-ModalContent {
+.Req-Modal {
+  position: relative;
   background-color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   max-width: 500px;
   width: 100%;
-  display: flex; 
-  flex-direction: column; /* 내용을 수직 가운데로 정렬하기 위해 수정 */
-  align-items: center; /* 내용을 수평 가운데로 정렬하기 위해 수정 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+
+.Req-CloseButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
 }
 
 .Req-AddSubjectButton {
   background-color: black;
   color: white;
   border: none;
-  padding: 5px 10px; /* 패딩 크기 줄이기 */
+  padding: 5px 10px;
   cursor: pointer;
   border-radius: 4px;
   margin-top: 10px;
@@ -69,23 +82,10 @@
   background-color: black;
   color: white;
   border: none;
-  padding: 5px 10px; /* 패딩 크기 줄이기 */
+  padding: 5px 10px;
   cursor: pointer;
   border-radius: 4px;
   margin-top: -2px;
- 
-}
-
-.Req-CloseButton {
-  position: absolute;
-  top: 360px;
-  right: 600px;
-  color: black; /* Change text color to black */
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-  background-color: transparent; /* Set background color to transparent */
-  font-weight: bold; /* Make the "x" symbol bold */
 }
 
 .Req-Sections {
@@ -94,18 +94,18 @@
 }
 
 .Req-Section {
-  margin-bottom: 10px; /* 섹션 간 간격 줄이기 */
+  margin-bottom: 10px;
 }
 
 .Req-SectionTitle {
   font-weight: bold;
-  margin-bottom: 5px; /* 제목 아래 간격 줄이기 */
+  margin-bottom: 5px;
 }
 
 .Req-Input {
   display: inline-block;
-  width: 180px; /* 입력 칸과 드롭다운 칸의 너비 줄이기 */
-  padding: 5px; /* 패딩 크기 줄이기 */
+  width: 180px;
+  padding: 5px;
   margin-right: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -120,70 +120,118 @@
   margin-right: 10px;
 }
 
-.Req-Dropdown{
-  display: inline-block;
-  width: 190px; /* 입력 칸과 드롭다운 칸의 너비 줄이기 */
-  padding: 5px; /* 패딩 크기 줄이기 */
-  margin-right: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.Req-DropdownWrapper {
-  display: flex;
-  align-items: center;
-}
-
 .Req-AddedItems {
-  margin-top: 10px; /* 추가된 항목 리스트의 위쪽 간격 줄이기 */
+  margin-top: 10px;
 }
 
 .Req-AddedItem {
-  padding: 5px; /* 패딩 크기 줄이기 */
+  padding: 5px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 5px; /* 항목 간 간격 줄이기 */
+  margin-bottom: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 160px;
+  height: 40px;
+  font-size: small;
 }
 
 .Req-DeleteButton {
   background-color: black;
   color: white;
   border: none;
-  padding: 5px 10px; /* 패딩 크기 줄이기 */
+  padding: 5px 10px;
   cursor: pointer;
   border-radius: 4px;
 }
 
-.Req-Achievement {
-  color: blue;
-  margin: 150px;
-  visibility:hidden;
+.Req-AddItem{
+  position: relative;
+  margin-left: 150px;
 }
 
-.Req-Unachieved {
+.Req-AddsItem{
+  position: relative;
+  margin-left: 450px;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inline;
+}
+
+.Req-Achievement .hidden {
+  color: blue;
+  margin: 150px;
+  display: none;
+}
+
+.Req-Achievement .visible {
+  color: blue;
+  margin: 150px;
+  display: inline;
+}
+
+.Req-Unachieved .hidden {
   color: red;
   margin: 150px;
-  visibility:hidden;
+  display: none;
+}
+
+.Req-Unachieved .visible {
+  color: red;
+  margin: 150px;
+  display: inline;
 }
 
 .Req-Title {
   top: 10px;
-  margin: -5px 0; /* Adjusted top and bottom margins */
+  margin: -5px 0;
 }
 
-.Req-OptionalText {
+.Req-OptionalText .hidden {
   color: gray;
   margin: 10px;
-  visibility:hidden;
+  display: none;
+}
+
+.Req-OptionalText .visible {
+  color: gray;
+  margin: 10px;
+  display: inline;
+}
+
+.Req-MandatoryText .hidden {
+  color: gray;
+  margin: 10px;
+  display: none;
+}
+
+.Req-MandatoryText .visible {
+  color: gray;
+  margin: 10px;
+  display: inline;
+  padding-left: 100%;
 }
 
 .Req-MandatoryText {
+  font-weight: bold;
   color: gray;
-  margin: 10px;
-  visibility:hidden;
+  position: absolute;
+  left: 70px;
+  top: 72px; /* 아래로 조금만 내리고 싶은 만큼의 값 */
 }
-  
+
+.Req-OptionalText {
+  font-weight: bold;
+  color: gray;
+  position: absolute;
+  left: 400px;
+  top: 70.5px; /* 아래로 조금만 내리고 싶은 만큼의 값 */
+  margin-left: 150px;
+}

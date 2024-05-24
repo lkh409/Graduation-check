@@ -71,6 +71,7 @@
     font-weight: bold;
     cursor: default;
     margin-right: 10px;
+    margin-top: 7px;
 }
 
 .Lib-CreditValue {
@@ -87,7 +88,7 @@
   
 .Lib-CreditTitle {
     font-weight: bold; /* 글씨를 굵게 설정합니다. */
-    margin-top: -8.7px; /* 위쪽 간격을 조절합니다. */
+    margin-top: -10px; /* 위쪽 간격을 조절합니다. */
     cursor: default;
 }
   
