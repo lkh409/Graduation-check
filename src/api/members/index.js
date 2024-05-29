@@ -55,3 +55,4 @@ export const me = async (token) => {
 
     return { status: response.status }
 }
+

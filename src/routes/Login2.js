@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 
 import user_icon from "../assets/user_icon.png";
@@ -7,34 +7,32 @@ import password_icon from "../assets/password_icon.png";
 import "../styles/LoginStyles.css";
 import api from '../api'
 
-function Login() {
-  const [loginOptions, setLoginOptions] = useState({})
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태를 관리하는 상태
+function Login({ setIsAuthenticated, setUserInfo }) { // props로 로그인 상태,사용자 정보 업데이트 함수 받음
+  const [loginOptions, setLoginOptions] = useState({});
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
-    // 로그인 처리 로직을 추가하고 성공하면 isLoggedIn 상태를 true로 변경
-    const response = await api.auth.login(loginOptions)
+    const response = await api.auth.login(loginOptions);
     if (response.status === 200) {
-      setIsLoggedIn(true)
+      setIsAuthenticated(true); // 로그인 성공 시 상태 업데이트
+      localStorage.setItem('token', response.token); // 토큰 저장
       alert('로그인 성공');
-      // 토큰 정보를 저장합니다
-      localStorage.setItem('token', response.token);
-      // 마이 페이지로 리디렉션
-      window.location.href = '/mypage';
-      return
-    }
 
-    if (response.status === 401) {
-      alert('아이디 또는 비밀번호가 틀렸습니다')
-      setLoginOptions({})
-      return
-    }
+      const userInfoResponse = await api.members.me(response.token); // 사용자 정보 호출
+      if (userInfoResponse.status === 200) {
+        setUserInfo(userInfoResponse.member);
+      }
 
+      navigate('/mypage'); // 마이 페이지로 리디렉션
+    } else if (response.status === 401) {
+      alert('아이디 또는 비밀번호가 틀렸습니다');
+      setLoginOptions({});
+    }
   };
 
   return (
     <>
-      <Navbar isLoggedIn={isLoggedIn} />{" "}
+      <Navbar isLoggedIn={false} />{" "}
       {/* Navbar에 isLoggedIn 상태를 props로 전달 */}
       <div className="LoginContainer">
         <div className="LoginTextHeader">

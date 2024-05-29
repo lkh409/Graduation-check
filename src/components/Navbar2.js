@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 class Navbar extends Component {
   render() {
-    const { isLoggedIn, toggleLogin } = this.props;
+    const { isLoggedIn, toggleLogin } = this.props; // props로 로그인 상태와 로그아웃 함수 받음
 
     return (
       <nav className="Navbar-container">
@@ -16,6 +16,7 @@ class Navbar extends Component {
 
           <ul className="nav-menu">
             {MenuItems.map((item, index) => {
+              // 로그인 상태에 따라 "마이 페이지"와 "로그아웃" 메뉴를 표시하거나 숨김
               if (
                 (item.title === "마이 페이지" || item.title === "로그아웃") &&
                 !isLoggedIn
@@ -32,7 +33,7 @@ class Navbar extends Component {
             })}
             <li>
               {isLoggedIn ? (
-                <button onClick={toggleLogin}>로그아웃</button>
+                <button onClick={toggleLogin}>로그아웃</button> // 로그아웃 버튼 클릭 시 로그아웃 함수 호출
               ) : (
                 <Link to="/login">
                   <button>로그인</button>

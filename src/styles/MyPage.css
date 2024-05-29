@@ -1,55 +1,63 @@
 .mypage-LayoutWrapper { 
-    display: flex;
-    width: 100%;
-  height: 100%; /* 추가: 페이지 높이를 화면 전체로 확장합니다. */
-  }
-  
-  .mypage-ContentWrapper {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column; 
-    width: 100%;
-    overflow-x: auto;
-  }
-  
-  .mypage-MainContentWrapper {
-    display: flex;
-    gap: 20px;
-    width: 80%;
-  }
-  
-  .mypage-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 80px;
-      text-align: left;
-      margin-bottom: 10px; /* 마이페이지 텍스트와 상세지표 텍스트 사이의 간격을 조정합니다. */
-    }
-    
-  .mypage-Major-Activity{
-    margin-top: 10px;
-  }
+  display: flex;
+  width: 100%;
+height: 100%; /* 추가: 페이지 높이를 화면 전체로 확장합니다. */
+}
 
-  .mypage-SubjectList {
-    align-self: flex-start; 
-    margin-top: 10px; 
-    font-weight: bold;
+.mypage-ContentWrapper {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  overflow-x: auto;
+}
+
+.mypage-MainContentWrapper {
+  display: flex;
+  gap: 20px;
+  width: 80%;
+}
+
+.mypage-title {
     font-size: 24px;
+    font-weight: bold;
+    margin-top: 80px;
+    text-align: left;
+    margin-bottom: 10px; /* 마이페이지 텍스트와 상세지표 텍스트 사이의 간격을 조정합니다. */
   }
   
-  .mypage-ButtonContainer {
-    display: flex;
-    gap: 10px; 
-    margin-top: 10px; 
-  }
-  
-  .mypage-Button {
-    padding: 8px 15px;
-    margin-left: 8px;
-    background-color: black; 
-    color: white; 
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.mypage-Major-Activity{
+  margin-top: 10px;
+}
+
+.mypage-SubjectList {
+  align-self: flex-start; 
+  margin-top: 10px; 
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.mypage-ButtonContainer {
+  display: flex;
+  gap: 10px; 
+  margin-top: 10px; 
+}
+
+.mypage-Button {
+  padding: 8px 15px;
+  margin-left: 8px;
+  background-color: black; 
+  color: white; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  z-index: 0;
+}
+
+.mypage-Button:hover {
+  background-color: gray; /* 추가: 마우스 오버 시 배경색 변경 */
+}
+
+
