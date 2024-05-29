@@ -40,6 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
 }
 
 .Req-Modal {
@@ -130,15 +131,18 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 5px;
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   align-items: center;
-  width: 160px;
+  width: 130px;
   height: 40px;
   font-size: small;
+  overflow: hidden;
+  flex-direction: flexbox;
 }
 
 .Req-DeleteButton {
+  position: relative;
   background-color: black;
   color: white;
   border: none;
@@ -148,13 +152,17 @@
 }
 
 .Req-AddItem{
-  position: relative;
-  margin-left: 150px;
+  position: absolute;
+  margin-left: 120px;
+  max-height: 200px; /* 스크롤이 생길 최대 높이 설정 */
+  overflow-y: auto;
 }
 
 .Req-AddsItem{
-  position: relative;
-  margin-left: 450px;
+  position: absolute;
+  margin-left: 600px;
+  max-height: 200px; /* 스크롤이 생길 최대 높이 설정 */
+  overflow-y: auto; /* 세로 스크롤이 필요한 경우만 스크롤 생성 */
 }
 
 .hidden {

@@ -49,8 +49,7 @@ const Requirements = () => {
           <span className="Req-MandatoryText">(필수)</span>
           {mandatoryItems.map((item, index) => (
             <div key={index} className="Req-AddItem">
-              {item.text}
-            
+              {item.text}  
             </div>
           ))}
         </div>
@@ -59,8 +58,7 @@ const Requirements = () => {
           <span className="Req-OptionalText">(선택)</span>
           {optionalItems.map((item, index) => (
             <div key={index} className="Req-AddsItem">
-              {item.text}
-              
+              {item.text} 
             </div>
           ))}
         </div>
@@ -81,6 +79,7 @@ const Requirements = () => {
                     placeholder="필수 항목을 입력하세요"
                     value={mandatoryInput}
                     onChange={(e) => handleMandatoryInputChange(e)}
+              
                   />
                   <button className="Req-AddButton" onClick={() => handleAddItem('mandatory')}>+</button>
                 </div>
@@ -94,6 +93,7 @@ const Requirements = () => {
                     placeholder="선택 항목을 입력하세요"
                     value={selectedOption}
                     onChange={(e) => setSelectedOption(e.target.value)}
+    
                   />
                   <button className="Req-AddButton" onClick={() => handleAddItem('optional')}>+</button>
                 </div>
@@ -125,7 +125,9 @@ const Requirements = () => {
   );
 };
 
-export default Requirements; 
+export default Requirements;
+
+
 
 
 
