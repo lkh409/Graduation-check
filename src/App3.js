@@ -21,14 +21,16 @@ function App3() {
   useEffect(() => { // 컴포넌트가 처음 렌더링될 때 토큰 확인
     const fetchUserInfo = async (token) => {
       const response = await api.members.me(token);
+      console.log("API response:", response);
       if (response.status === 200) {
-        console.log("User info:", response.member);  // User info 로그 출력
-        setUserInfo(response.member);
+        console.log("User info:", response);  // User info 로그 출력
+        setUserInfo(response);
         setIsAuthenticated(true);
       }
     };
 
     const token = localStorage.getItem('token');
+    console.log("Token from localStorage:", token); 
     if (token) {
       fetchUserInfo(token);
     }
@@ -43,7 +45,7 @@ function App3() {
   return (
     <div className="app-container">
       <Router>
-      <Navbar isLoggedIn={isAuthenticated} toggleLogin={handleLogout} />
+      <Navbar isLoggedIn={isAuthenticated} toggleLogin={handleLogout} userInfo={userInfo} />
         <div>
           <Routes>
             {" "}

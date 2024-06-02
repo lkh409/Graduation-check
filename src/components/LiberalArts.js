@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/LiberalArts.css'; // 외부 CSS 파일 import
 
-const LiberalArts = () => {
-  // 각 교양 항목의 학점 값을 저장할 상태 정의
+const LiberalArts = ({ data }) => {
+  const [credits, setCredits] = useState({
+    인성교양: '0 / 0',
+    자유교양: '0 / 0',
+    기초교양: '0 / 0',
+    일반교양: '0 / 0',
+    영역1: '미이수',
+    영역2: '미이수',
+    영역3: '미이수',
+    영역4: '미이수'
+  });
 
-
+  useEffect(() => {
+    if (data) {
+      setCredits({
+        인성교양: `${data.인성교양.earned} / ${data.인성교양.total}`,
+        자유교양: `${data.자유교양.earned} / ${data.자유교양.total}`,
+        기초교양: `${data.기초교양.earned} / ${data.기초교양.total}`,
+        일반교양: `${data.일반교양.earned} / ${data.일반교양.total}`,
+        영역1: data.영역1 ? '이수' : '미이수',
+        영역2: data.영역2 ? '이수' : '미이수',
+        영역3: data.영역3 ? '이수' : '미이수',
+        영역4: data.영역4 ? '이수' : '미이수'
+      });
+    }
+  }, [data]);
 
   return (
     <div className="Lib-BoxWrap">
@@ -54,33 +76,5 @@ const LiberalArts = () => {
     </div>
   );
 }
-
+  
 export default LiberalArts;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

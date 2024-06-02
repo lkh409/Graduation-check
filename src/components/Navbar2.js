@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 class Navbar extends Component {
   render() {
-    const { isLoggedIn, toggleLogin } = this.props; // props로 로그인 상태와 로그아웃 함수 받음
+    const { isLoggedIn, toggleLogin} = this.props; // props로 로그인 상태와 로그아웃 함수 받음
 
     return (
       <nav className="Navbar-container">
