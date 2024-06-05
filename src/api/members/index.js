@@ -37,7 +37,7 @@ export const create = async (options) => {
  * 현재 로그인된 사용자 정보를 불러옵니다
  * 
  * @param {string} token 사용자 정보
- * @returns {Member | ErrorOutput}
+ * @returns {Promise<Member | ErrorOutput>}
  */
 export const me = async (token) => {
     const response = await fetch(`${BASE_URL}/members/me`, {
@@ -46,7 +46,7 @@ export const me = async (token) => {
         }
     })
     const json = await response.json()
-    if (response.status in [200]) {
+    if ([200].includes(response.status)) {
         return { 
             status: response.status,
             ...json,

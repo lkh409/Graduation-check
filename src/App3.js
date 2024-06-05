@@ -18,14 +18,20 @@ function App3() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userInfo, setUserInfo] = useState(null); // 사용자 정보 상태 추가
 
-  useEffect(() => { // 컴포넌트가 처음 렌더링될 때 토큰 확인
+  useEffect(() => {
     const fetchUserInfo = async (token) => {
-      const response = await api.members.me(token);
-      console.log("API response:", response);
-      if (response.status === 200) {
-        console.log("User info:", response);  // User info 로그 출력
-        setUserInfo(response);
-        setIsAuthenticated(true);
+      try {
+        const response = await api.members.me(token);
+        console.log("API response:", response); // API 응답 전체 출력
+        if (response.status === 200) {
+          console.log("User info:", response); // User info 로그 출력
+          setUserInfo(response); // 사용자 정보를 올바르게 설정
+          setIsAuthenticated(true);
+        } else {
+          console.error("Failed to fetch user info:", response);
+        }
+      } catch (error) {
+        console.error("Error fetching user info:", error);
       }
     };
 

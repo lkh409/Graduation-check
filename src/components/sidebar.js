@@ -31,12 +31,10 @@ const Sidebar = ({ userInfo }) => {
       try {
         const departmentsData = await findAll();
         console.log("Fetched departmentsData:", departmentsData);
-
-        // 응답 데이터가 객체인 경우 처리
-        if (departmentsData && typeof departmentsData === 'object' && departmentsData.data) {
-          setDepartmentList(departmentsData.data);
-        } else if (Array.isArray(departmentsData)) {
+        if (Array.isArray(departmentsData)) {
           setDepartmentList(departmentsData);
+        } else if (departmentsData && typeof departmentsData === 'object' && departmentsData.data) {
+          setDepartmentList(departmentsData.data);
         } else {
           console.error('Unexpected data format:', departmentsData);
           setDepartmentList([]);
@@ -46,9 +44,10 @@ const Sidebar = ({ userInfo }) => {
         setDepartmentList([]);
       }
     };
-
+    
     fetchDepartments();
   }, []);
+
     
 
   useEffect(() => {
@@ -71,11 +70,6 @@ const Sidebar = ({ userInfo }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 여기서 데이터를 서버에 전송하는 등의 처리를 할 수 있습니다.
-    console.log("Form submitted with:", {
-      tempName,
-      tempDepartment,
-    });
     setName(tempName);
     setDepartment(tempDepartment);
     setIsModalOpen(false);
