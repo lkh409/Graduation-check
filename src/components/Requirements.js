@@ -43,7 +43,7 @@ const Requirements = () => {
     <div className="Req-BoxWrapperse">
       <h2 className="Req-Title">학과 졸업요건</h2>
       <button className="Req-EditButton" onClick={openModal}>수정하기</button>
-      <div className="Req-Text">
+      <div className="Req">
         <div>
           <span>&nbsp;&nbsp;&nbsp;</span>
           <span className="Req-MandatoryText">(필수)</span>
@@ -81,7 +81,7 @@ const Requirements = () => {
                     onChange={(e) => handleMandatoryInputChange(e)}
               
                   />
-                  <button className="Req-AddButton" onClick={() => handleAddItem('mandatory')}>+</button>
+                  <button className="Req-AButton" onClick={() => handleAddItem('mandatory')}>+</button>
                 </div>
               </div>
               <div className="Req-Section">
@@ -102,7 +102,7 @@ const Requirements = () => {
             <div className="Req-AddedItems">
               {mandatoryItems.map((item, index) => (
                 <div key={index} className="Req-AddedItem">
-                  {item.text}
+                  <span className="Req-AddedItemText">{item.text}</span>
                   {isModalOpen && (
                     <button className="Req-DeleteButton" onClick={() => removeItem(index)}>삭제</button>
                   )}
@@ -110,9 +110,9 @@ const Requirements = () => {
               ))}
               {optionalItems.map((item, index) => (
                 <div key={index} className="Req-AddedItem">
-                  {item.text}
+                  <span className="Req-AddedItemText">{item.text}</span>
                   {isModalOpen && (
-                    <button className="Req-DeleteButton" onClick={() => removeItem(index)}>삭제</button>
+                    <button className="Req-DButton" onClick={() => removeItem(index)}>삭제</button>
                   )}
                 </div>
               ))}
@@ -126,65 +126,3 @@ const Requirements = () => {
 };
 
 export default Requirements;
-
-
-
-
-
- 
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
