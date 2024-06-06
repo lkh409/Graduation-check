@@ -56,3 +56,49 @@ export const me = async (token) => {
     return { status: response.status }
 }
 
+/**
+ * 사용자 정보를 업데이트합니다.
+ * 
+ * @param {{ name: string, departmentId: number, password: string }} updateData 사용자의 업데이트할 정보
+ * @returns {Promise<MemberUpdateOutput>}
+ */
+export const updateMemberInfo = async (updateData) => {
+    const { name, departmentId, password } = updateData;
+    const token = localStorage.getItem('token'); // 로컬 스토리지에서 사용자 토큰 가져오기
+
+    if (!token) {
+        return { status: 401, message: "No authorization token found" };
+    }
+
+    try {
+        const response = await fetch(`${BASE_URL}/members/update`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                name,
+                departmentId,
+                password
+            })
+        });
+
+        const json = await response.json();
+        if (response.status === 200) {
+            return {
+                status: response.status,
+                updatedUser: json.member, // 서버가 반환하는 업데이트된 사용자 정보
+                message: json.message
+            };
+        } else {
+            return {
+                status: response.status,
+                message: json.message
+            };
+        }
+    } catch (error) {
+        console.error('Error updating user info:', error);
+        return { status: 500, message: 'Server error during the user info update' };
+    }
+}

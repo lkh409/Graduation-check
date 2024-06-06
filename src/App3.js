@@ -40,7 +40,7 @@ function App3() {
     if (token) {
       fetchUserInfo(token);
     }
-  }, []);
+  }, [isAuthenticated]);
 
   const handleLogout = () => { // 로그아웃 처리
     localStorage.removeItem('token');
