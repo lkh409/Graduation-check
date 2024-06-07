@@ -1,6 +1,6 @@
 // MyPage.js
 
-import React, { useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate 훅을 임포트
 import '../styles/MyPage.css';
 import Sidebar from '../components/sidebar';
@@ -9,11 +9,20 @@ import Major from '../components/Major';
 import Activity from '../components/Activity';
 import Requirements from '../components/Requirements';
 import CourseList from '../components/Courselist';
-import { create } from '../api/xlsx'; // create 함수 임포트
+import api from '../api'; // create 함수 임포트
+import { UserContext } from '../context';
+import { useReadLocalStorage } from 'usehooks-ts';
 
-function MyPage({ userInfo }) {  // userInfo를 props로 받음
+function MyPage() {  // userInfo를 props로 받음
+  const userInfo = useContext(UserContext)
+  const token = useReadLocalStorage('token')
   const fileInputRef = useRef(null); // 파일 입력(input) 엘리먼트의 참조 생성
   const navigate = useNavigate(); // useNavigate 훅 사용
+  const [credit, setCredit] = useState(null)
+
+  useEffect(() => {
+    api.members.credits(token).then((data) => setCredit(data))
+  }, [])
 
   // 파일 선택 창 열기
   const openFilePicker = () => {
@@ -26,10 +35,9 @@ function MyPage({ userInfo }) {  // userInfo를 props로 받음
     // 파일 처리 로직 추가
     if (file) {
       try {
-        const token = 'your-auth-token'; // 실제 토큰으로 대체
-        const response = await create(file, token);
+        const response = await api.xlsx.create(file, token);
         console.log('서버 응답:', response);
-        
+
         // 서버 응답 처리 및 마이페이지 데이터 업데이트 로직 추가
         if (response.success) {
           // 서버에서 받은 데이터를 이용해 교양 학점 정보 업데이트
@@ -44,7 +52,7 @@ function MyPage({ userInfo }) {  // userInfo를 props로 받음
       }
     }
   };
-
+        
   // 새 페이지로 이동하는 함수
   const navigateToCourseSearchPage = () => {
     navigate('/CourseSearchPage'); // CourseSearchPage로 페이지 이동
@@ -53,15 +61,15 @@ function MyPage({ userInfo }) {  // userInfo를 props로 받음
   return (
     <div className="mypage-LayoutWrapper">
       <div className="mypage-sidebar">
-        <Sidebar userInfo={userInfo}/>
+        <Sidebar />
       </div>
       <div className="mypage-ContentWrapper">
         <h1 className="mypage-title">마이페이지</h1>
         <div className="mypage-MainContentWrapper">
-          <LiberalArts />
+          <LiberalArts data={credit} />
           <div className='mypage-Major-Activity'>
-            <Major />
-            <Activity />
+            <Major data={credit} />
+            <Activity data={credit} />
           </div>
         </div>
         <Requirements />

@@ -21,13 +21,12 @@ export const create = async (xlsx, token) => {
         body: formData,
         headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
         }
     })
     const json = await response.json()
-    if (response.status === 200) {
+    if (response.ok) {
         return {
-            status: response.status,
+            success: response.status,
             ...json
         }
     }
@@ -38,7 +37,7 @@ export const create = async (xlsx, token) => {
             message: '지원하지 않는 파일 확장자입니다'
         }
     }
-
-
+   
+    
     return { status: response.status }
 }

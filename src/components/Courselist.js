@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Courselist.css'; // Import CSS file
+import { useReadLocalStorage } from 'usehooks-ts';
+import api from '../api'
+
 const CourseList = () => {
+  const token = useReadLocalStorage('token')
+  const [courses, setCourses] = useState([])
+
+  useEffect(() => {
+    api.members.subjects(token).then((courses) => setCourses(courses))
+  }, [token])
+
   return (
     <div className="Cor-BoxWrapping">
       <div>

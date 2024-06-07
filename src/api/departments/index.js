@@ -12,7 +12,7 @@ import { BASE_URL } from "../options"
 export const findAll = async () => {
     const response = await fetch(`${BASE_URL}/departments`)
     const json = await response.json()
-    if (response.status in [200]) {
+    if ([200].includes(response.status)) {
         return json
     }
 

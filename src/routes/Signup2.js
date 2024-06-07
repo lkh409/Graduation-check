@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar2";
 import user_icon from "../assets/user_icon.png";
 import email_icon from "../assets/email_icon.png"; // 이메일 아이콘 이미지
@@ -29,64 +29,12 @@ function Signup() {
   const [isEmailCheck, setIsEmailCheck] = useState(false); // 중복 검사를 했는지 안했는지
   const [isEmailAvailable, setIsEmailAvailable] = useState(false); // 아이디 사용 가능한지 아닌지
 
-  const departmentItems = [
-    { id: 1, name: "기독교학과" },
-    { id: 2, name: "한국언어문화학과" },
-    { id: 3, name: "영어영문학과" },
-    { id: 4, name: "중국학과" },
-    { id: 5, name: "법경찰행정학과" },
-    { id: 6, name: "사회복지학부" },
-    { id: 7, name: "청소년문화·상담학과" },
-    { id: 8, name: "유아교육과" },
-    { id: 9, name: "항공서비스학과" },
-    { id: 10, name: "산업심리학과" },
-    { id: 11, name: "미디어커뮤니케이션학과" },
-    { id: 12, name: "글로벌통상학과" },
-    { id: 13, name: "경영학부" },
-    { id: 14, name: "디지털금융경영학과" },
-    { id: 15, name: "식품공학과" },
-    { id: 16, name: "제약공학과" },
-    { id: 17, name: "화장품과학과" },
-    { id: 18, name: "생명공학과" },
-    { id: 19, name: "식품영양학과" },
-    { id: 20, name: "간호학과" },
-    { id: 21, name: "물리치료학과" },
-    { id: 22, name: "임상병리학과" },
-    { id: 23, name: "동물보건복지학과" },
-    { id: 24, name: "전기공학과" },
-    { id: 25, name: "시스템제어공학과" },
-    { id: 26, name: "기계공학과" },
-    { id: 27, name: "미래자동차학과" },
-    { id: 28, name: "화학공학과" },
-    { id: 29, name: "안전공학과" },
-    { id: 30, name: "소방방재학과" },
-    { id: 31, name: "건축학과" },
-    { id: 32, name: "건축토목공학부" },
-    { id: 33, name: "환경공학과" },
-    { id: 34, name: "정보통신공학부" },
-    { id: 35, name: "자동차 ICT공학과" },
-    { id: 36, name: "신소재공학과" },
-    { id: 37, name: "전자재료공학과" },
-    { id: 38, name: "빅데이터AI학부" },
-    { id: 39, name: "컴퓨터공학부" },
-    { id: 40, name: "게임소프트웨어학과" },
-    { id: 41, name: "지능로봇학과" },
-    { id: 42, name: "전자공학과" },
-    { id: 43, name: "반도체공학과" },
-    { id: 44, name: "사회체육학과" },
-    { id: 45, name: "골프산업학과" },
-    { id: 46, name: "시각디자인학과" },
-    { id: 47, name: "산업디자인학과" },
-    { id: 48, name: "디지털프로덕트디자인학과" },
-    { id: 49, name: "실내디자인학과" },
-    { id: 50, name: "문화영상학부" },
-    { id: 51, name: "애니메이션학과" },
-    { id: 52, name: "공연예술학부" },
-    { id: 53, name: "사회복지상담학과" },
-    { id: 54, name: "산업안전공학과" },
-    { id: 55, name: "스마트경영학과" },
-    { id: 56, name: "실용미디어학과" }
-  ];
+  const [departmentGroups, setDepartmentGroups] = useState([])
+  const [departments, setDepartments] = useState([])
+
+  useEffect(() => {
+    api.departmentGroups.findAll().then((departmentGroups) => setDepartmentGroups(departmentGroups))
+  }, [])
 
   // 체크박스 전체선택시 모두선택 체크박스 활성화시키기
   const handleCheck = (e) => {
@@ -100,9 +48,7 @@ function Signup() {
     e.target.checked ? setCheckList(["terms", "privacy"]) : setCheckList([]);
   };
 
-  const handleReset = () => {
-    console.log("Dropdown reset");
-  };
+
 
   const onChangeEmailHandler = (e) => {
     const emailValue = e.target.value;
@@ -133,11 +79,25 @@ function Signup() {
     }
   };
 
-  const handleSelect = (selectedItem) => {
-    console.log("Selected item:", selectedItem);
-    setMajor(selectedItem.id); // 선택된 학과 저장
+
+  const handleSelectDepartmentGroup = (departmentGroup) => {
+    setDepartments(departmentGroup.departments);
+  };
+
+  const handleResetForDepartmentGroup = () => {
+    setDepartments([])
+  };
+
+  const handleSelect = (department) => {
+    console.log("Selected item:", department);
+    setMajor(department.id); // 선택된 학과 저장
     setMajorMsg(""); // 메시지 초기화
   };
+  
+  const handleResetForDepartments = () => {
+    setMajor(null)
+  };
+
 
   const handleSubmit = async () => {
     if (!major) {
@@ -329,17 +289,35 @@ function Signup() {
               <img src={major_icon} alt="" className="icon" />
               <DropdownBtn
                 drBtn_title={"학과"}
-                items={departmentItems.map(item => item.name)}
+                items={departmentGroups.map(item => item.name)}
                 type={"signup"}
                 onSelect={(item) => {
-                  const selectedDepartment = departmentItems.find(dept => dept.name === item);
-                  handleSelect(selectedDepartment);
+                  const departmentGroup = departmentGroups.find(dept => dept.name === item);
+                  handleSelectDepartmentGroup(departmentGroup);
                 }}
-                onReset={handleReset}
+                onReset={handleResetForDepartmentGroup}
               />
             </div>
             {majorMsg && <p className="s_message">{majorMsg}</p>}
           </div>
+
+
+          {departments.length > 0 && <div className="s_InputContainer">
+            <div className="s_input">
+              <img src={major_icon} alt="" className="icon" />
+              <DropdownBtn
+                drBtn_title={"학과"}
+                items={departments.map(item => item.name)}
+                type={"signup"}
+                onSelect={(item) => {
+                  const department = departments.find(dept => dept.name === item);
+                  handleSelect(department);
+                }}
+                onReset={handleResetForDepartments}
+              />
+            </div>
+            {majorMsg && <p className="s_message">{majorMsg}</p>}
+          </div>}
 
           <div className="Agreement">
             <div className="agree1">

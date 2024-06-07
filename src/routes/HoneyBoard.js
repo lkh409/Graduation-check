@@ -1,20 +1,23 @@
 //develop3
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Honey_list from '../components/Honey_list';
 import '../styles/HoneyBoard.css';
 import DropdownBtn from '../components/Dropdown_btn';
-import { honey_data } from '../components/Honey_item';
+import { useReadLocalStorage } from 'usehooks-ts';
+import api from '../api'
 
 function HoneyBoard() {
   {/*필터링에 필요한 상태들 관리 */}
+  const token = useReadLocalStorage('token')
   const [creditFilter, setCreditFilter] = useState(null); // 학점 관련
   const [areaFilter, setAreaFilter] = useState(null); // 선택영역 관련
   const [chooseFilter, setChooseFilter] = useState(null); // 이수구분 관련
   const [sortBy, setSortBy] = useState(0); // 수강횟수 정렬 관련
+  const [subjects, setSubjects] = useState([])
 
   const applyFilters = () => { //필터링 기능 함수. 카테고리 버튼을 통해 원하는 값을 선택할 때마다 if문의 조건에 따라 올바르게 필터링 될 수 있도록 설정
-    let filteredData = honey_data.filter(item => {
+    let filteredData = subjects.filter(item => {
       if (creditFilter && areaFilter && chooseFilter) {
         return item.credit === creditFilter && item.choose === areaFilter && item.kind === chooseFilter;
       } else if (creditFilter && areaFilter) {
@@ -44,7 +47,11 @@ function HoneyBoard() {
     return filteredData;
   };
 
+  useEffect(() => {
+    api.liberalArts.find({ token }).then((subjects) => setSubjects(subjects))
+  }, [token])
 
+  
 // handleReset 함수들을 통해 각 필터 초기화 하는 기능 구현
 const handleResetCredit = () => {
   setCreditFilter(null);

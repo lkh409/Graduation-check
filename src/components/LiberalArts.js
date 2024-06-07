@@ -1,30 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import '../styles/LiberalArts.css'; // 외부 CSS 파일 import
+import { useReadLocalStorage } from 'usehooks-ts';
+import { getCreditForKind } from '../helpers';
 
 const LiberalArts = ({ data }) => {
-  const [credits, setCredits] = useState({
-    인성교양: '0 / 0',
-    자유교양: '0 / 0',
-    기초교양: '0 / 0',
-    일반교양: '0 / 0',
-    영역1: '미이수',
-    영역2: '미이수',
-    영역3: '미이수',
-    영역4: '미이수'
-  });
+  const token = useReadLocalStorage('token')
+  const credits = useMemo(() => {
+    if (!data || Object.keys(data).length <= 0) {
+      return {}
+    }
 
-  useEffect(() => {
-    if (data) {
-      setCredits({
-        인성교양: `${data.인성교양.earned} / ${data.인성교양.total}`,
-        자유교양: `${data.자유교양.earned} / ${data.자유교양.total}`,
-        기초교양: `${data.기초교양.earned} / ${data.기초교양.total}`,
-        일반교양: `${data.일반교양.earned} / ${data.일반교양.total}`,
-        영역1: data.영역1 ? '이수' : '미이수',
-        영역2: data.영역2 ? '이수' : '미이수',
-        영역3: data.영역3 ? '이수' : '미이수',
-        영역4: data.영역4 ? '이수' : '미이수'
-      });
+    const creditGetter = getCreditForKind(data.credits)
+
+    // 인성 교양
+    const tenacityLiberalArts = creditGetter('TENACITY_LIBERAL_ARTS')
+
+    // 필수(기초) 교양
+    const requiredLiberalArts = creditGetter('REQUIRED_LIBERAL_ARTS')
+
+    // 일반(균형) 교양
+    const generalLiberalArts = creditGetter('GENERAL_LIBERAL_ARTS')
+
+    // 자유 교양
+    const freeLiberalArts = creditGetter('GENERAL')
+    
+    return {
+      인성교양: `${tenacityLiberalArts.required} / ${tenacityLiberalArts.acquired}`,
+      자유교양: `${freeLiberalArts.required} / ${freeLiberalArts.acquired}`,
+      기초교양: `${requiredLiberalArts.required} / ${requiredLiberalArts.acquired}`,
+      일반교양: `${generalLiberalArts.required} / ${generalLiberalArts.acquired}`,
+      영역1: data.hasLiberalArts1 ? '이수' : '미이수',
+      영역2: data.hasLiberalArts2 ? '이수' : '미이수',
+      영역3: data.hasLiberalArts3 ? '이수' : '미이수',
+      영역4: data.hasLiberalArts4 ? '이수' : '미이수'
     }
   }, [data]);
 
@@ -35,20 +43,20 @@ const LiberalArts = ({ data }) => {
       <div className="Lib-CreditContain">
         <div className="Lib-CreditItem">
           <span className="Lib-CreditTitle">인성 교양</span>
-          <span className='Lib-CreditValue'>0 / 0</span>
-  
+          <span className='Lib-CreditValue'>{credits.인성교양}</span>
+
         </div>
         <div className="Lib-CreditItem">
           <span className="Lib-CreditTitle">자유 교양</span>
-          <span className='Lib-CreditValue'>0 / 0</span>
+          <span className='Lib-CreditValue'>{credits.자유교양}</span>
         </div>
         <div className="Lib-CreditItem">
           <span className="Lib-CreditTitle">기초 교양</span>
-          <span className='Lib-CreditValue'>0 / 0</span>
+          <span className='Lib-CreditValue'>{credits.기초교양}</span>
         </div>
         <div className="Lib-CreditItem">
           <span className="Lib-CreditTitle">일반 교양</span>
-          <span className='Lib-CreditValue'>0 / 0</span>
+          <span className='Lib-CreditValue'>{credits.일반교양}</span>
         </div>
         <div className="Lib-CreditItem">
           <span className="Lib-CreditLabel">1영역 교양</span>
@@ -68,10 +76,10 @@ const LiberalArts = ({ data }) => {
         <p className="Lib-Credit">학점</p>
         <p className="Lib-Credit">학점</p>
         <p className="Lib-Credit">학점</p>
-        <p className="Lib-Credit isIncomplete">미이수</p>
-        <p className="Lib-Credit isIncomplete">미이수</p>
-        <p className="Lib-Credit isIncomplete">미이수</p>
-        <p className="Lib-Credit isIncomplete">미이수</p>
+        <p className="Lib-Credit isIncomplete">{credits.영역1}</p>
+        <p className="Lib-Credit isIncomplete">{credits.영역2}</p>
+        <p className="Lib-Credit isIncomplete">{credits.영역3}</p>
+        <p className="Lib-Credit isIncomplete">{credits.영역4}</p>
       </div>
     </div>
   );

@@ -18,11 +18,11 @@ function Honey_list({ honey_data }) { //HoneyBoard.js의 임시데이터 가져�
         {honey_data.map(item => ( // 맵 함수로 data 배열의 각 요소 반복하여 테이블의 각 행을 생성
           <tr key={item.id}> {/*각 행에 키값을 부여하여 고유 식별자를 주기 위한 용도. 학수번호를 고유 키값으로 설정함 */}
             <td className='h-item'>{item.id}</td> {/*행 안의 아이템들 순서대로 넣어줌 */}
-            <td className='h-item'>{item.sname}</td>
+            <td className='h-item'>{item.name}</td>
             <td className='h-item'>{item.kind}</td>
             <td className='h-item'>{item.choose}</td>
             <td className='h-item'>{item.credit}</td>
-            <td className='h-item'>{item.courses}</td>
+            <td className='h-item'>{item.count}</td>
           </tr>
         ))}
       </tbody>

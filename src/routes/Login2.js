@@ -6,9 +6,13 @@ import user_icon from "../assets/user_icon.png";
 import password_icon from "../assets/password_icon.png";
 import "../styles/LoginStyles.css";
 import api from '../api'
+import { useLocalStorage } from 'usehooks-ts'
+
 
 function Login({ setIsAuthenticated, setUserInfo }) { // props로 로그인 상태, 사용자 정보 업데이트 함수 받음
   const [loginOptions, setLoginOptions] = useState({ id: '', password: '' });
+  const [_, setToken, __] = useLocalStorage('token')
+  
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
@@ -17,7 +21,8 @@ function Login({ setIsAuthenticated, setUserInfo }) { // props로 로그인 상�
       const response = await api.auth.login(loginOptions);
       if (response.status === 200) {
         setIsAuthenticated(true); // 로그인 성공 시 상태 업데이트
-        localStorage.setItem('token', response.token); // 토큰 저장
+        console.log(response)
+        setToken(response.token)
         alert('로그인 성공');
 
         const userInfoResponse = await api.members.me(response.token); // 사용자 정보 호출
