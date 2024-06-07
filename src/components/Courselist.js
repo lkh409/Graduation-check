@@ -13,32 +13,31 @@ const CourseList = () => {
 
   return (
     <div className="Cor-BoxWrapping">
-      <div>
-        <h3 className='Cor-title'>수강과목 리스트</h3>
-        <div className="Cor-LineWrapper">
-          <div className="Cor-Line">
-            <span className="Cor-RowText"></span>
-          </div>
-          <div className="Cor-Line">
-            <span className="Cor-RowText"></span>
-          </div>
-          <div className="Cor-Line">
-            <span className="Cor-RowText"></span>
-          </div>
-          <div className="Cor-Line">
-            <span className="Cor-RowText"></span>
-          </div>
-          <div className="Cor-Line">
-            <span className="Cor-RowText"></span>
-          </div>
-          <div className="Cor-Line">
-            <span className="Cor-RowText"></span>
-          </div>
-          <div className="Cor-Line">
-            <span className="Cor-RowText"></span>
-          </div>
-        </div>
-      </div>
+      <h3 className='Cor-title'>수강과목 리스트</h3>
+      <table className='Course-list-table'>
+        <thead>
+          <tr>
+            <th className='Course-list-header'>년도</th>
+            <th className='Course-list-header'>학기</th>
+            <th className='Course-list-header'>학수번호</th>
+            <th className='Course-list-header'>과목명</th>
+            <th className='Course-list-header'>이수구분</th>
+            <th className='Course-list-header'>학점</th>
+          </tr>
+        </thead>
+        <tbody>
+          {courses.map((course) => (
+            <tr key={course.id}>
+              <td>{course.year}</td>
+              <td>{course.semester}</td>
+              <td>{course.subjectId}</td>
+              <td>course.name</td>
+              <td>course.choose</td>
+              <td>{course.credit}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

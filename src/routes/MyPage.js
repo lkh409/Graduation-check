@@ -42,6 +42,8 @@ function MyPage() {  // userInfo를 props로 받음
         if (response.success) {
           // 서버에서 받은 데이터를 이용해 교양 학점 정보 업데이트
           // 예: setLiberalArtsData(response.data);
+          alert('파일 업로드 성공');
+          window.location.reload();
         } else {
           // 에러 처리
           alert(response.message || '파일 업로드 실패');

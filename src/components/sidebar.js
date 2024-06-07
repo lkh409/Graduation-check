@@ -62,6 +62,7 @@ const Sidebar = () => {
       password,
     }, token).then((response) => {
       setIsModalOpen(false);
+      window.location.reload(); // 정보 수정 후 새로고침
     })
   };
 
@@ -75,8 +76,8 @@ const Sidebar = () => {
       if (response.status !== 204) {
         alert('비밀번호가 일치하지 않습니다')
       }
-      
-      // TODO: 탈퇴 후 어디로 가야할지 여기서 위치 변경해주세요
+      window.location.href = '/login';
+      //탈퇴 후 로그인 페이지 이동
     })
   }
 
