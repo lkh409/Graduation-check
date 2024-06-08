@@ -51,6 +51,24 @@ function Check_page() {
     api.members.credits(token).then((data) => setData(data))
   }, [])
 
+  const preCredits = [
+    memoized?.tenacityLiberalArts?.acquired ?? 0,
+    memoized?.requiredLiberalArts?.acquired ?? 0,
+    memoized?.generalLiberalArts?.acquired ?? 0,
+    memoized?.freeLiberalArts?.acquired ?? 0,
+    memoized?.requiredMajor?.acquired ?? 0,
+    memoized?.optionalMajor?.acquired ?? 0
+  ];
+
+  const stdCredits = [
+    memoized?.tenacityLiberalArts?.required ?? 0,
+    memoized?.requiredLiberalArts?.required ?? 0,
+    memoized?.generalLiberalArts?.required ?? 0,
+    memoized?.freeLiberalArts?.required ?? 0,
+    memoized?.requiredMajor?.required ?? 0,
+    memoized?.optionalMajor?.required ?? 0
+  ];
+
 
   return (
     <>
@@ -58,22 +76,8 @@ function Check_page() {
       <div className='check-chart-bar'>
         {/* GraduationCheck 컴포넌트를 렌더링 */}
         <GraduationCheck
-          stdcredits={[
-            memoized?.tenacityLiberalArts?.required ?? 0,
-            memoized?.requiredLiberalArts?.required ?? 0,
-            memoized?.generalLiberalArts?.required ?? 0,
-            memoized?.freeLiberalArts?.acquired ?? 0,
-            memoized?.requiredMajor?.required ?? 0,
-            memoized?.optionalMajor?.required ?? 0
-          ]} 
-          precredits={[
-            memoized?.tenacityLiberalArts?.acquired ?? 0,
-            memoized?.requiredLiberalArts?.acquired ?? 0,
-            memoized?.generalLiberalArts?.acquired ?? 0,
-            memoized?.freeLiberalArts?.required ?? 0,
-            memoized?.requiredMajor?.acquired ?? 0,
-            memoized?.optionalMajor?.acquired ?? 0
-          ]}
+          stdcredits={stdCredits}
+          precredits={preCredits}
           />
       </div>
       <p className='check-info-text'>추천하기 버튼을 누르면 각 영역의 세부 정보를 확인할 수 있습니다.</p>

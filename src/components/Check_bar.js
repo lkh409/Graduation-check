@@ -1,11 +1,15 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
+
 function CheckBar({ preCredits, stdCredits }) {
   // preCredits와 stdCredits의 값을 모두 합산하여 졸업 달성도 계산
-  const totalPreCredits = preCredits.reduce((total, credits) => total + credits, 0);
+  const totalPreCredits = preCredits.reduce((total, credits, index) => {
+    return total + Math.min(credits, stdCredits[index]);
+  }, 0);
+
   const totalStdCredits = stdCredits.reduce((total, credits) => total + credits, 0);
-  const totalRatio = Math.floor((totalPreCredits / totalStdCredits) * 100);
+  const totalRatio = Math.round((totalPreCredits / totalStdCredits) * 100);
 
   const data = [
     { name: '', 달성도: totalRatio }
