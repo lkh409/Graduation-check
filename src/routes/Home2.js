@@ -3,11 +3,22 @@ import React from 'react';
 import { Layout} from 'antd';
 import '../styles/Home.css';
 import '../components/MenuItems';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import cherry from "../assets/cherry-blossom.jpg"
+import { useReadLocalStorage } from 'usehooks-ts'
 
 function Home() {
   const { Content } = Layout;
+  const token = useReadLocalStorage('token');
+  const navigate = useNavigate();
+
+  const handleCheckClick = () => {
+    if (token) {
+      navigate("/check");
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <>
@@ -22,11 +33,9 @@ function Home() {
               style={{ margin: 'auto', display: 'block', filter: 'brightness(0.92)' }}
             />
             <div className="home-button-container">
-              <Link to={"/check"}>
-              <button className="home-primary-button">
+              <button className="home-primary-button" onClick={handleCheckClick}>
                 검사하기
                 </button>
-              </Link>
             </div>
           </div>
         </Content>

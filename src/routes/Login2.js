@@ -29,6 +29,7 @@ function Login({ setIsAuthenticated, setUserInfo }) { // props로 로그인 상�
         if (userInfoResponse.status === 200) {
           setUserInfo(userInfoResponse.member);
           navigate('/mypage'); // 마이 페이지로 리디렉션
+          window.location.reload(); // 정보 수정 후 새로고침
         }
       } else if (response.status === 401) {
         alert('아이디 또는 비밀번호가 틀렸습니다');

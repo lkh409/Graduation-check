@@ -124,7 +124,7 @@ function CourseSearchPage() {
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
-        className="modal-content"
+        className="Search-modal-content"
         contentLabel="과목 추가"
       >
         <h2>과목 추가</h2>
@@ -151,19 +151,18 @@ function CourseSearchPage() {
           </label>
           <label>
             년도:
-            <input type="number" name="year" onChange={(e) => setCourse((c) => ({ ...c, year: e.target.valueAsNumber }))} required={true} />
+            <input type="number" name="year" defaultValue={2024} onChange={(e) => setCourse((c) => ({ ...c, year: e.target.valueAsNumber }))} required={true} />
           </label>
           <label>
             학기:
-            <input type="number" name="semester" onChange={(e) => setCourse((c) => ({ ...c, semester: e.target.valueAsNumber }))} required={true} />
+            <input type="number" name="semester" max={2} onChange={(e) => setCourse((c) => ({ ...c, semester: e.target.valueAsNumber }))} required={true} />
           </label>
-          <label>
-            성적:
-            <input type="text" name="grade" onChange={(e) => setCourse((c) => ({ ...c, grade: e.target.value }))} required={true}  />
-          </label>
-          <button type="submit">추가하기</button>
-        </form>)}
-        <button onClick={closeModal}>닫기</button>
+          <div className="button-container">
+                <button type="submit">추가하기</button>
+                <button onClick={closeModal} type="button">닫기</button>
+            </div>
+        </form>
+        )}
       </Modal>
     </>
   );

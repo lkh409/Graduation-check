@@ -6,7 +6,7 @@
   padding: 10px;
   margin: 10px;
   width: 1173px;
-  height: auto;
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column; /* 플렉스 방향을 열로 설정 */
