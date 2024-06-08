@@ -361,7 +361,7 @@
   color: gray;
   position: absolute;
   left: 70px;
-  top: 72px; /* 아래로 조금만 내리고 싶은 만큼의 값 */
+  top: 71px; /* 아래로 조금만 내리고 싶은 만큼의 값 */
 }
 
 .Req-OptionalText {
