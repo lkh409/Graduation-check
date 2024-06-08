@@ -49,7 +49,7 @@ function App3() {
               <Route path="/" element={<Home />} />
               <Route path="/check" element={isAuthenticated ? <Check_page /> : <Navigate to="/login" />} />{" "}
               {/*검사하기는 메뉴에 없지만 편의상 코드를 짜면서 확인하기 편하도록 임시로 추가해놓음 */}
-              <Route path="/honeyboard" element={<HoneyBoard />} />
+              <Route path="/honeyboard" element={isAuthenticated ? <HoneyBoard /> : <Navigate to="/login" />} />
               <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} setUserInfo={setUserInfo} />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/mypage" element={isAuthenticated ? <MyPage userInfo={userInfo} /> : <Navigate to="/login" />} />

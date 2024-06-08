@@ -17,6 +17,7 @@ function Home() {
       navigate("/check");
     } else {
       navigate("/login");
+      alert("호서대 졸업요건 사이트는 로그인 후 사용 가능합니다.");
     }
   };
 

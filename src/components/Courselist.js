@@ -30,9 +30,9 @@ const CourseList = () => {
             <tr key={course.id}>
               <td>{course.year}</td>
               <td>{course.semester}</td>
-              <td>{course.subjectId}</td>
-              <td>course.name</td>
-              <td>course.choose</td>
+              <td>{course.subject_id}</td>
+              <td>{course.name}</td>
+              <td>{course.kind}</td>
               <td>{course.credit}</td>
             </tr>
           ))}
