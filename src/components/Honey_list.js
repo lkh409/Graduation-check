@@ -22,7 +22,7 @@ function Honey_list({ honey_data }) { //HoneyBoard.js의 임시데이터 가져�
             <td className='h-item'>{item.kind}</td>
             <td className='h-item'>{item.choose}</td>
             <td className='h-item'>{item.credit}</td>
-            <td className='h-item'>{item.count}</td>
+            <td className='h-item'>{0}</td>
           </tr>
         ))}
       </tbody>

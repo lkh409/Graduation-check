@@ -1,24 +1,24 @@
 .Req-BoxWrapperse {
-  grid-template-columns: 1fr 1fr; /* 두 개의 열로 설정 */
-  grid-template-rows: auto;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
-  width: 1173px;
-  height: 130px;
+  max-width: 1173px;
+}
+
+.Req-BoxHeader {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  overflow: hidden;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .Req-EditButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   background-color: black;
   color: white;
   border: none;
@@ -29,7 +29,7 @@
 
 .Req {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 두 개의 열 */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 두 개의 열 */
   gap: 20px; /* 열 사이의 간격 */
 }
 
@@ -327,8 +327,7 @@
 }
 
 .Req-Title {
-  top: 10px;
-  margin: -5px 0;
+  margin: 0;
 }
 
 .Req-OptionalText .hidden {
@@ -359,7 +358,6 @@
 .Req-MandatoryText {
   font-weight: bold;
   color: gray;
-  position: absolute;
   left: 70px;
   top: 71px; /* 아래로 조금만 내리고 싶은 만큼의 값 */
 }
@@ -367,8 +365,7 @@
 .Req-OptionalText {
   font-weight: bold;
   color: gray;
-  position: absolute;
   left: 400px;
   top: 71px; /* 아래로 조금만 내리고 싶은 만큼의 값 */
-  margin-left: 150px;
+  margin-left: 150x;
 }
