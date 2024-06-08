@@ -7,7 +7,7 @@ import { BASE_URL } from "../options"
  * @typedef {{ status: number, member: Member, token: string }} MemberCreateOutput
  * @typedef {{ id: number, name: string, password: string, departmentId: number }} MemberUpdateOptions
  * @typedef {{ password: string }} MemberDeleteOptions
- * @typedef {{ id: number, year: number, semester: number, credit: number, grade: string, subject: { id: string, kind: string, creditKind: string, name: string } }} MemberSubject
+ * @typedef {{ id: number, year: number, semester: number, credit: number, grade: string, subject: { id: string, kind: string, creditKind: string, name: string }, isFromXlsx: boolean }} MemberSubject
  * @typedef {{ credits: { id: number, kind: string, acquired: number, required?: number }[], hasLiberalArts1: boolean, hasLiberalArts2: boolean, hasLiberalArts3: boolean, hasLiberalArts4: boolean }} MemberCredit 
  * @typedef {{ id: number, year: number, semester: number, grade: string, subjectId: string }} CreateMemberSubject
  * 
@@ -173,4 +173,22 @@ export const addSubject = async (options, token) => {
     }
 
     return { status: response.status }
+}
+
+/**
+ * 현재 로그인된 사용자 정보의 수강과목을 삭제합니다
+ * 
+ * @param {string | number} subjectId 삭제할 교과목 ID
+ * @param {string} token 사용자 정보
+ * @returns {Promise<MemberSubject>}
+ */
+export const deleteSubject = async (subjectId, token) => {
+    const response = await fetch(`${BASE_URL}/members/me/subjects/${subjectId}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+
+    return { status: response.status, ok: response.ok }
 }

@@ -38,7 +38,7 @@ function CourseSearchPage() {
   const handleCourseClick = (course) => {
     setIsModalOpen(true)
 
-    setCourse(course)
+    setCourse({ ...course, year: 2024 })
   };
 
   const onSubmit = (e) => {
@@ -151,7 +151,7 @@ function CourseSearchPage() {
           </label>
           <label>
             년도:
-            <input type="number" name="year" onChange={(e) => setCourse((c) => ({ ...c, year: e.target.valueAsNumber }))} required={true} />
+            <input type="number" name="year" value={course.year ?? 2024} onChange={(e) => setCourse((c) => ({ ...c, year: e.target.valueAsNumber }))} required={true} />
           </label>
           <label>
             학기:
