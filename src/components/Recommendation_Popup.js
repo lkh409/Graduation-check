@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import '../styles/popup.css';
-import { honey_data } from './Honey_item';
+import { honey_data } from './Honey_list';
 import PieCheck from '../components/Check_Pie'; // PieCheck 컴포넌트를 import
 
 function RecommendationPopup({ isOpen, onClose, details, filteredData }) {
@@ -53,11 +53,11 @@ function RecommendationPopup({ isOpen, onClose, details, filteredData }) {
                         {filteredData.map(item => (
                             <tr key={item.id}>
                                 <td className='h-item'>{item.id}</td>
-                                <td className='h-item'>{item.sname}</td>
+                                <td className='h-item'>{item.name}</td>
                                 <td className='h-item'>{item.kind}</td>
                                 <td className='h-item'>{item.choose}</td>
                                 <td className='h-item'>{item.credit}</td>
-                                <td className='h-item'>{item.courses}</td>
+                                <td className='h-item'>{item.count}</td>
                             </tr>
                         ))}
                     </tbody>

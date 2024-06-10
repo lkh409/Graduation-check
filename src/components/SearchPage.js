@@ -1,56 +1,63 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import '../styles/SearchPage.css';
+import { useReadLocalStorage } from 'usehooks-ts';
+import api from '../api';
 
 function CourseSearchPage() {
+  const token = useReadLocalStorage('token')
+
   const [searchText, setSearchText] = useState('');
   const [filteredData, setFilteredData] = useState([]);
+  const [subjects, setSubjects] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [newCourse, setNewCourse] = useState({
-    id: '',
-    sname: '',
-    kind: '',
-    choose: '',
-    credit: ''
-  });
+  const [course, setCourse] = useState(null);
 
-  const courseData = [
-    { id: 'CS101', sname: 'Introduction to Computer Science', kind: 'Core', choose: 'Mandatory', credit: 3 },
-    { id: 'CS102', sname: 'Data Structures', kind: 'Core', choose: 'Mandatory', credit: 3 },
-    { id: 'CS103', sname: 'Algorithms', kind: 'Core', choose: 'Elective', credit: 3 },
-    { id: 'CS104', sname: 'Operating Systems', kind: 'Core', choose: 'Elective', credit: 3 },
-    // ... 더 많은 과목 데이터
-  ];
+  useEffect(() => {
+    api.subjects.find({ token }).then((subjects) => setSubjects(subjects))
+  }, [])
 
   const handleSearch = () => {
-    const results = courseData.filter(item => 
+    const results = subjects.filter(item => 
       item.id.toLowerCase().includes(searchText.toLowerCase()) || 
-      item.sname.toLowerCase().includes(searchText.toLowerCase())
+      item.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredData(results);
   };
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
   const closeModal = () => {
     setIsModalOpen(false);
+    setCourse(null)
   };
 
   const handleAddCourse = () => {
-    setFilteredData([...filteredData, newCourse]);
+    setFilteredData([...filteredData]);
     closeModal();
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewCourse({ ...newCourse, [name]: value });
+  const handleCourseClick = (course) => {
+    setIsModalOpen(true)
+
+    setCourse({ ...course, year: 2024 })
   };
 
-  const handleCourseClick = (course) => {
-    window.confirm("추가하시겠습니까?");
-  };
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    api.members.addSubject({
+      subjectId: course.id,
+      year: course.year,
+      semester: course.semester,
+      credit: course.credit,
+      grade: course.grade
+    }, token).then((response) => {
+      if (response.status <= 300) {
+        return alert('성공적으로 추가하였습니다')
+      }
+
+      alert('오류')
+    })
+  }
 
   return (
     <>
@@ -78,11 +85,25 @@ function CourseSearchPage() {
             </tr>
           </thead>
           <tbody>
-            {filteredData.length > 0 ? (
+            {filteredData.length > 0 && (
               filteredData.map(item => (
                 <tr key={item.id}>
                   <td className='s-item'>{item.id}</td>
-                  <td className='s-item'>{item.sname}</td>
+                  <td className='s-item'>{item.name}</td>
+                  <td className='s-item'>{item.kind}</td>
+                  <td className='s-item'>{item.choose}</td>
+                  <td className='s-item'>{item.credit}</td>
+                  <td className='s-item'>
+                    <button onClick={() => handleCourseClick(item)}>추가</button>
+                  </td>
+                </tr>
+              ))
+            )}
+            {filteredData.length <= 0 && subjects.length > 0 ? (
+              subjects.map(item => (
+                <tr key={item.id}>
+                  <td className='s-item'>{item.id}</td>
+                  <td className='s-item'>{item.name}</td>
                   <td className='s-item'>{item.kind}</td>
                   <td className='s-item'>{item.choose}</td>
                   <td className='s-item'>{item.credit}</td>
@@ -103,45 +124,48 @@ function CourseSearchPage() {
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
-        className="modal-content"
+        className="Search-modal-content"
         contentLabel="과목 추가"
       >
         <h2>과목 추가</h2>
-        <form>
+        {course && (<form onSubmit={onSubmit}>
           <label>
             학수번호:
-            <input type="text" name="id" value={newCourse.id} onChange={handleInputChange} />
+            <input type="text" name="id" value={course.id} disabled={true} />
           </label>
           <label>
             과목명:
-            <input type="text" name="sname" value={newCourse.sname} onChange={handleInputChange} />
+            <input type="text" name="name" value={course.name} disabled={true} />
           </label>
           <label>
             이수구분:
-            <input type="text" name="kind" value={newCourse.kind} onChange={handleInputChange} />
+            <input type="text" name="kind" value={course.kind}  disabled={true} />
           </label>
           <label>
             선택영역:
-            <input type="text" name="choose" value={newCourse.choose} onChange={handleInputChange} />
+            <input type="text" name="choose" value={course.choose} disabled={true}/>
           </label>
           <label>
             학점:
-            <input type="text" name="credit" value={newCourse.credit} onChange={handleInputChange} />
+            <input type="number" name="credit" value={course.credit} onChange={(e) => setCourse((c) => ({ ...c, credit: e.target.valueAsNumber }))} required={true} />
           </label>
-          <button type="button" onClick={handleAddCourse}>추가하기</button>
+          <label>
+            년도:
+            <input type="number" name="year" value={course.year ?? 2024} onChange={(e) => setCourse((c) => ({ ...c, year: e.target.valueAsNumber }))} required={true} />
+          </label>
+          <label>
+            학기:
+            <input type="number" name="semester" max={2} onChange={(e) => setCourse((c) => ({ ...c, semester: e.target.valueAsNumber }))} required={true} />
+          </label>
+          <div className="button-container">
+                <button type="submit">추가하기</button>
+                <button onClick={closeModal} type="button">닫기</button>
+            </div>
         </form>
-        <button onClick={closeModal}>닫기</button>
+        )}
       </Modal>
     </>
   );
 }
 
 export default CourseSearchPage;
-
-
-
-
-
-
-
-

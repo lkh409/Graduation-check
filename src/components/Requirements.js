@@ -41,8 +41,10 @@ const Requirements = () => {
 
   return (
     <div className="Req-BoxWrapperse">
-      <h2 className="Req-Title">학과 졸업요건</h2>
-      <button className="Req-EditButton" onClick={openModal}>수정하기</button>
+      <div className='Req-BoxHeader'>
+        <h2 className="Req-Title">학과 졸업요건</h2>
+        <button className="Req-EditButton" onClick={openModal}>수정하기</button>
+      </div>
       <div className="Req">
         <div>
           <span>&nbsp;&nbsp;&nbsp;</span>

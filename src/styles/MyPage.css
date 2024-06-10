@@ -1,7 +1,7 @@
 .mypage-LayoutWrapper { 
   display: flex;
   width: 100%;
-height: 100%; /* 추가: 페이지 높이를 화면 전체로 확장합니다. */
+  height: 100%; /* 추가: 페이지 높이를 화면 전체로 확장합니다. */
 }
 
 .mypage-ContentWrapper {
