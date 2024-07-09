@@ -1,5 +1,3 @@
-//develop3
-
 import React, { useState, useEffect } from 'react';
 import Honey_list from '../components/Honey_list';
 import '../styles/HoneyBoard.css';
@@ -48,33 +46,47 @@ function HoneyBoard() {
   };
 
   useEffect(() => {
-    api.liberalArts.find({ token }).then((subjects) => setSubjects(subjects))
-  }, [token])
+    const fetchData = async () => {
+      const [liberalArts, otherSubjects] = await Promise.all([
+        api.liberalArts.find({ token }),
+        api.subjects.find({ token })
+      ]);
 
-  
-// handleReset 함수들을 통해 각 필터 초기화 하는 기능 구현
-const handleResetCredit = () => {
-  setCreditFilter(null);
-};
+      // 두 데이터를 합치고 중복을 제거
+      const combinedSubjects = [...liberalArts, ...otherSubjects];
+      const uniqueSubjects = Array.from(new Set(combinedSubjects.map(item => item.id))) // id를 기준으로 중복 제거
+        .map(id => {
+          return combinedSubjects.find(item => item.id === id);
+        });
 
-const handleResetArea = () => {
-  setAreaFilter(null);
-};
+      setSubjects(uniqueSubjects);
+    };
 
-const handleResetChoose = () => {
-  setChooseFilter(null);
-};
+    fetchData();
+  }, [token]);
 
-const handleResetSort = () => {
-  setSortBy(0);
-};
+  // handleReset 함수들을 통해 각 필터 초기화 하는 기능 구현
+  const handleResetCredit = () => {
+    setCreditFilter(null);
+  };
 
-const filteredHoneyData = applyFilters();
+  const handleResetArea = () => {
+    setAreaFilter(null);
+  };
 
+  const handleResetChoose = () => {
+    setChooseFilter(null);
+  };
+
+  const handleResetSort = () => {
+    setSortBy(0);
+  };
+
+  const filteredHoneyData = applyFilters();
 
   return (
     <div className='honey-main-container'> {/* 메인콘텐츠 영역 */}
-        <h2 className='honey-title'>교양 추천 게시판</h2>
+        <h2 className='honey-title'>원하는 교양 찾기</h2>
         <h3 className='honey-exp'>카테고리 별로 원하는 교양을 찾아보세요!</h3>
       <div className='honey-category'> {/*카테고리 버튼용 영역 */}
         <h3 className='honey-category-text'>카테고리</h3>
@@ -87,16 +99,16 @@ const filteredHoneyData = applyFilters();
         />
         <DropdownBtn
           drBtn_title={"이수구분"}
-          items={['인성교양', '기초교양', '일반교양', '대학기초']}
+          items={['인성교양', '기초교양', '일반교양', '자유선택', '대학기초', '전공과목', '전공필수']}
           onSelect={setChooseFilter}
-          onReset={handleResetArea} 
+          onReset={handleResetChoose} 
         />
-        <DropdownBtn
+        {/*<DropdownBtn
           drBtn_title={"수강횟수"}
           items={['적은순', '많은순']}
           onSelect={(item) => setSortBy(item === '적은순' ? 1 : item === '많은순' ? 2 : 0)} // 선택한 리스트 값이 적은순이면 1을 대입하여 오름차순, 많은순이면 2를 대입하여 내림차순
           onReset={handleResetSort}
-        />
+  />*/}
       </div>
       <h2>교양 목록</h2>
       <div className='honey-list'>

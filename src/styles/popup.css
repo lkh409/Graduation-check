@@ -21,7 +21,7 @@
     display: flex;
   }
   .popup-close-btn{
-    margin-left: 83%;
+    margin-left: 80%;
     background-color: white;
     color: dimgray;
     font-size:xx-large;
@@ -63,7 +63,28 @@
   .popup-list{
     border: solid 2px white;
     height: 30%;
+    padding-right: 8px;
     box-shadow: 2px 2px 4px 1px rgba(0,0,0,0.1);
     overflow-y: auto;
-    overflow-x: auto;
+    overflow-x: hidden;
   }
+  .popup-list{
+    border: solid 2px white;
+    width: 750px;
+    border-spacing: 0px;
+    border-collapse: separate;
+}
+
+.popup-list-thead{
+    background-color:dimgray;
+    color: white;
+    height: 35px;
+}
+
+.popup-item{
+    border: solid 1px white;
+}
+
+.popup-list tbody tr:nth-child(even) {
+    background-color:whitesmoke; /* 짝수 행에 배경색 적용 */
+}

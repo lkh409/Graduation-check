@@ -5,7 +5,7 @@ export const MenuItems = [
       cName: "nav-links",
     },
     {
-      title: "꿀교양 찾기",
+      title: "교양 찾기",
       url: "/honeyboard",
       cName: "nav-links",
     },

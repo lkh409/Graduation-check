@@ -85,7 +85,7 @@ function Check_page() {
           <MainContentContainer3 title="인성교양" precredit={memoized?.tenacityLiberalArts?.acquired} stdcredit={memoized?.tenacityLiberalArts?.required}/>
           <MainContentContainer3 title="기초교양" precredit={memoized?.requiredLiberalArts?.acquired} stdcredit={memoized?.requiredLiberalArts?.required} />
           <MainContentContainer3 title="일반교양" precredit={memoized?.generalLiberalArts?.acquired} stdcredit={memoized?.generalLiberalArts?.required}/>
-          <MainContentContainer3 title="자유교양" precredit={memoized?.freeLiberalArts?.acquired} stdcredit={memoized?.freeLiberalArts?.required}/>
+          <MainContentContainer3 title="자유선택" precredit={memoized?.freeLiberalArts?.acquired} stdcredit={memoized?.freeLiberalArts?.required}/>
           <MainContentContainer3 title="전공필수" precredit={memoized?.requiredMajor?.acquired} stdcredit={memoized?.requiredMajor?.required}/>
           <MainContentContainer3 title="전공선택" precredit={memoized?.optionalMajor?.acquired} stdcredit={memoized?.optionalMajor?.required}/>
       </div>
