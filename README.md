@@ -1,4 +1,4 @@
-# Graduation-check
+# :cherry_blossom: Graduation-check
 ### 호서대학교 졸업요건 확인 서비스
 ![메인화면](https://github.com/leesuin0710/Graduation-check/assets/132324729/80b90f4e-535f-4a61-a7aa-499e1f7ede78)
 
