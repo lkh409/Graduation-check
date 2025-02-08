@@ -145,8 +145,5 @@
 ## ERD
 ![erd](https://github.com/leesuin0710/Graduation-check/assets/132324729/684b3290-f9e9-42dc-bccf-a560ce270be4)
 
-<br>
-<br>
 
-## Figma
-[디자인 설계](https://www.figma.com/design/NLbqTMWUAHGbuLZ5Z6oP9h/Please-let-me-graduate?node-id=0-1&p=f&t=5m2xWhxf6syFeqY5-0)
+
